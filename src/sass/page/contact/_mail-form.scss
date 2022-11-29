@@ -13,7 +13,7 @@
 	margin-bottom: rem(32);
 	font-size: rem(14);
 	font-weight: $regular;
-	letter-spacing: (0.7em / 14 );
+	letter-spacing: calc(0.7em / 14 );
 	@include mq(md) {
 		display: flex;
 		justify-content: space-between;
@@ -44,7 +44,7 @@
 	padding-bottom: rem(9.5);
 	@include mq(md) {
 		height: 100%;
-		width: 100% * (134 / strip-unit($inner-696) );
+		width: 100% * calc(134 / strip-unit($inner-696) );
 	}
 }
 
@@ -52,8 +52,8 @@
 	width: 100%;
 	@include mq(md) {
 		height: 100%;
-		width: 100% * (520 / strip-unit($inner-696) );
-		margin-left: 100% * (24 / strip-unit($inner-696) );
+		width: 100% * calc(520 / strip-unit($inner-696) );
+		margin-left: 100% * calc(24 / strip-unit($inner-696) );
 	}
 }
 
@@ -91,9 +91,9 @@
 	width: 100%;
 	background-color: cadetblue;
 	@include mq(md) {
-		width: 100% * (360 / strip-unit($inner-696) );
+		width: 100% * calc(360 / strip-unit($inner-696) );
 		transform: translateX();
-		margin-right: ( 50% * (520 / strip-unit($inner-696) )) - ( 50% * (360 / strip-unit($inner-696) ) );
+		margin-right: calc(( 50% * (520 / strip-unit($inner-696) )) - ( 50% * (360 / strip-unit($inner-696) ) ) );
 		margin-left: auto;
 
 	}
@@ -390,12 +390,12 @@ form#mail_form input[type="button"] {
 	// border-radius: 3px;
 	// width: 100% * ( 360 / strip-unit($inner-696) );
 	height: rem(60);
-	padding-left: (2em / 16 );
+	padding-left: calc(2em / 16 );
 	background: $white;
 	font-size: rem(16);
 	color: $black0;
 	font-size: rem(16);
-	letter-spacing: (2em / 16 );
+	letter-spacing: calc(2em / 16 );
 	line-height: rem(60);
 	-webkit-appearance: none;
 }

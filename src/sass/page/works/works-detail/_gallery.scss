@@ -35,9 +35,9 @@
 }
 
 .gallery-slider .swiper-slide::before {
-    padding-top: 100% * ( 251 / 375 );
+    padding-top: 100% * calc( 251 / 375 );
     @include mq("md") {
-        padding-top: 100% * ( 560 / 801 );
+        padding-top: 100% * calc( 560 / 801 );
     }
 }
 

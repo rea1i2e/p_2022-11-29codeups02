@@ -11,9 +11,9 @@
 .map::before {
   content:"";
     display: block;
-    padding-top: 100% * ( 300 / 375 );
+    padding-top: 100% * calc( 300 / 375 );
     @include mq(md) {
-      padding-top: 100% * ( 367 / 1100 );
+      padding-top: 100% * calc( 367 / 1100 );
     }
 }
 

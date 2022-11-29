@@ -9,8 +9,8 @@
   @include mq(md) {
     margin-bottom: rem(21);
     font-size: rem(25);
-    letter-spacing: ( 2em / 25 );
-    text-indent: ( 2em / 25 );
+    letter-spacing: calc( 2em / 25 );
+    text-indent: calc( 2em / 25 );
   }
 }
 

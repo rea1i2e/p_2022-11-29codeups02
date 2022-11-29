@@ -6,7 +6,7 @@
   line-height: calc( 24 / 13 );
   @include mq(md) {
     font-size: rem(16);
-    letter-spacing: ( 1em / 16 );
+    letter-spacing: calc( 1em / 16 );
     line-height: calc( 24 / 13 );
   }
 }
@@ -19,19 +19,19 @@
 
 .data-list__title {
   display: inline-block;
-  width: 100% * ( 60 / 335 );
+  width: 100% * calc( 60 / 335 );
   vertical-align: top;
   @include mq("md") {
-    width: 100% * ( 80 / 1100 );
+    width: 100% * calc( 80 / 1100 );
   }
 }
 
 .data-list__description {
   display: inline-block;
-  width: 100% * ( 221 / 335 );
-  margin-left: 100% * ( 50 / 335 );
+  width: 100% * calc( 221 / 335 );
+  margin-left: 100% * calc( 50 / 335 );
   @include mq("md") {
-    width: 100% * ( 940 / 1100 );
-    margin-left: 100% * ( 70 / 1100 );;
+    width: 100% * calc( 940 / 1100 );
+    margin-left: 100% * calc( 70 / 1100 );;
   }
 }

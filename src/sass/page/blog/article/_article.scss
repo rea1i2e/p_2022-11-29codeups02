@@ -26,9 +26,9 @@
 .article__image::before {
   content:"";
   display: block;
-  padding-top: 100% * ( 251 / 375 );
+  padding-top: 100% * calc( 251 / 375 );
   @include mq(md) {
-    padding-top: 100% * ( 427 / 799 );
+    padding-top: 100% * calc( 427 / 799 );
   }
 }
 

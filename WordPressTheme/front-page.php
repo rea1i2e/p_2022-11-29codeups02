@@ -1,9 +1,9 @@
 <?php get_header(); ?>
 
 <div class="mainview top-mainview">
-  <div class="mainview__slide" style="background-image: url(assets/images/top/mv01.jpg)"></div>
-  <div class="mainview__slide" style="background-image: url(assets/images/top/mv02.jpg)"></div>
-  <div class="mainview__slide" style="background-image: url(assets/images/top/mv03.jpg)"></div>
+  <div class="mainview__slide" style="background-image: url(<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/top/mv01.jpg)"></div>
+  <div class="mainview__slide" style="background-image: url(<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/top/mv02.jpg)"></div>
+  <div class="mainview__slide" style="background-image: url(<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/top/mv03.jpg)"></div>
   <!-- キャプチャ撮影用 -->
   <!-- <div class="mainview__slide0" style="background-image: url(assets/images/top/mv01.jpg)"></div> -->
   <div class="mainview__title">
@@ -17,7 +17,7 @@
   <div class="top-news__l-inner l-inner">
     <div class="top-news__wrapper">
       <dl class="top-news__news-item news-item">
-        <dt class="news-item__date">2020.07.20</dt>
+        <dt class="news-item__date js-test">あ2020.07.20</dt>
         <dd class="news-item__category">お知らせ</dd>
         <dd class="news-item__title"><a class="news-item__link" href="">記事タイトルが入ります。記事タイトルが入ります。記事タイトルが入ります。</a></dd>
       </dl>
