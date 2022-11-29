@@ -1,0 +1,139 @@
+@use "global" as *;
+
+// 1.アスペクト比を保ちたい要素の親div要素につけるクラス
+// 下記の「2.」とセットで使う
+.image { 
+  position: relative;
+  width: 100%;
+}
+
+.image::before {
+  content:"";
+  display: block;
+  // padding-top: calc( 100% * 233 / 350 ); // アスペクト比を固定(sp)
+  // @include mq("md") {
+    // padding-top: calc( 100% * 233 / 350 ); // アスペクト比を固定(pc)
+  // }
+}
+
+// アスペクト比を保ちたい要素の親div要素につけるmodifier（ここでアスペクト比を定義）
+.image--card::before {
+  padding-top: calc( 100% * 233 / 350 ); // アスペクト比を固定(sp)
+  // @include mq("md") {
+  //   padding-top: calc( 100% * 233 / 350 ); // アスペクト比を固定(pc)
+  // }
+}
+
+// .image--full {
+//   position: relative;
+// }
+.image--full::before {
+  padding-top: calc( 100% * 168 / 187.5 ); // アスペクト比を固定(sp)
+  @include mq("md") {
+    padding-top: 100%; // アスペクト比を固定(pc)
+  }
+}
+
+// ホバー時に上に乗せてくもらせるための擬似要素
+.image--full::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  // opacity: 0.6;
+  position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  transition: 1s;
+  background: $white;
+}
+
+.image--full:hover::after {
+  opacity: 0.6;
+}
+
+// .image--with-text {
+//   position: relative;
+// }
+
+.image--with-text::before {
+  padding-top: calc( 100% * 261 / 375 ); // アスペクト比を固定(sp)
+  @include mq("md") {
+    padding-top: calc( 100% * 389 / 557 ); // アスペクト比を固定(sp)
+  }
+}
+
+// 2.アスペクト比を固定したい画像に付与するクラス
+// 上記の「1.」とセットにして使う
+
+// 2-1.img要素につけるクラス
+.image__img { 
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+// 2-2. div要素につけるクラス
+// 2-2-1とセットにして使う
+.image__div { 
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: grid;
+  place-items: center;
+  position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+// 2-2-1. background-imageを指定するクラス（「2-2.」とセットにして使う
+.image__div--image00 {
+  background-image: url(../images/top/content-image00.jpg);
+  // background-image: url(../images/test/test-image.jpg);
+}
+.image__div--image01 {
+  background-image: url(../images/top/content-image01.jpg);
+}
+.image__div--image02 {
+  background-image: url(../images/top/content-image02.jpg);
+}
+.image__div--image03 {
+  background-image: url(../images/top/content-image03.jpg);
+}
+
+// 2-2-2. 画像の中央にテキストを入れるクラス（2-2、2-2-1とセットで使う）
+.image__title {
+  // background-color: green;
+  font-size: rem(20);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-align: center;
+  padding-left: 0.1em;
+  @include mq("md") {
+    font-size: rem(25);
+    letter-spacing: calc( 2em / 25 );
+    padding-left: calc( 2em / 25 );
+  }
+}
+
+// 2-3 slick
+// 修正が必要
+// .image__slick-slider { 
+//   background-position: center center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   place-items: center;
+//   position: absolute;
+//     top: 0;
+//     left: 0;
+//     bottom: 0;
+//     right: 0;
+// }
+

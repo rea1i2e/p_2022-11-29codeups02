@@ -1,0 +1,82 @@
+@use "global" as *;
+
+.js-costum-dots {
+  // background-color: pink;
+  font-size: 0;
+  position: absolute;
+  bottom: rem(-20);
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  @include mq("md") {
+    bottom: rem(-29);
+    right: 3.75%;
+  }
+}
+
+.js-costum-dots li {
+  position: relative;
+  display: inline-block;
+  width: rem(8);
+  height: rem(8);
+  width: rem(19);
+  height: rem(19);
+  // margin: 0  rem(5.5);
+  // padding: 0;
+  // background-color: green;
+  padding: 0  rem(5.5);
+  margin: 0;
+  cursor: pointer;
+}
+
+.js-costum-dots li button {
+  line-height: 0;
+  display: block;
+  width: rem(8);
+  height: rem(8);
+  padding: rem(0);
+  cursor: pointer;
+  color: transparent;
+  border: 0;
+  outline: none;
+  background: transparent;
+}
+
+.js-costum-dots li button:before {
+  font-family: 'slick';
+  // font-size: rem(6);
+  // line-height: rem(20);
+  position: absolute;
+  // top: 0;
+  // left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate( -50%, -50% );
+  width: rem(8);
+  height: rem(8);
+  content: '';
+  text-align: center;
+  transition: 0.3s;
+  // opacity: .25;
+  color: black;
+  background-color: $dot-color-defalt;
+  border-radius: 50%;
+}
+
+.js-costum-dots li:hover button:before {
+  background-color: $accent-color;
+}
+
+
+// 表示されている画像に対応するページネーションのスタイル
+.js-costum-dots li.slick-active button::before {
+  background-color: $accent-color;
+}
+
+//  slick-sliderで付与されるmargin-bottom: 30px;を打ち消し
+.slick-dotted.slick-slider {
+  margin-bottom: 0;
+}

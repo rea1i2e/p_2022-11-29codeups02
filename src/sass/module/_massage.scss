@@ -1,0 +1,51 @@
+@use "global" as *;
+
+.massage {
+  margin-top: rem(130);
+  margin-bottom: rem(168);
+  @include mq(md) {
+    margin-top: rem(150);
+    margin-bottom: rem(182);
+  }
+}
+
+.massage__404 {
+  margin-bottom: rem(80);
+  padding-left: calc(2em / 40);
+  font-size: rem(40);
+  font-weight: $regular;
+  letter-spacing: calc(2em / 40);
+  color: $accent-color;
+  opacity: $opacity2;
+  @include mq(md) {
+    padding-left: calc(2em / 60);
+    font-size: rem(60);
+    letter-spacing: calc(2em / 60);
+  }
+}
+
+.massage__title {
+  margin-bottom: rem(80);
+  padding-left: calc(2em / 20);
+  font-size: rem(20);
+  font-weight: $regular;
+  letter-spacing: calc(2em / 20);
+  @include mq(md) {
+    padding-left: calc(2em / 30);
+    font-size: rem(30);
+    letter-spacing: calc(2em / 30);
+  }
+}
+
+.massage__description {
+  margin-bottom: rem(80);
+  padding-left: calc(2em / 20);
+  font-size: rem(20);
+  font-weight: $regular;
+  letter-spacing: calc(2em / 20);
+  @include mq(md) {
+    padding-left: calc(2em / 30);
+    font-size: rem(30);
+    letter-spacing: calc(2em / 30);
+  }
+}

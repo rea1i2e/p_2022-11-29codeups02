@@ -1,0 +1,10 @@
+@use "global" as *;
+
+.news-list {
+  text-align: left;
+}
+
+.news-list__news-item {
+  margin-bottom: rem(32);
+}
+

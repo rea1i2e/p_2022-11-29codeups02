@@ -1,0 +1,47 @@
+@use "global" as *;
+
+.background-line {
+  position:relative;
+  z-index: $layer1-background-line;
+}
+
+.background-line::before {
+  background-color: $accent-color;
+  content: "";
+  height: 1px;
+  position: absolute;
+  top: calc( 100vw * 1085 / 375);
+  left: 0;
+  transform:rotate(61.09deg);
+  transform-origin:left top;
+  width: calc( 100vw * 776 / 375);
+  @include mq("md") {
+    top: calc( 100vw * 1000 / 1280);
+    left: 0;
+    transform:rotate(45deg);
+    // width: calc( 100vw * 1714 / 1280);
+    width: calc( 100vw * 1803 / 1280);
+
+  }
+}
+
+.background-line::after {
+  background-color: $accent-color;
+  content: "";
+  height: 1px;
+  position: absolute;
+    top: calc( 100vw * 1800 / 375);
+    right: 0;
+  transform:rotate(285.05deg);
+  transform-origin:right top;
+  width: calc( 100vw * 1448 / 375);
+  @include mq("md") {
+    top: calc( 100vw * 3548 / 1280);
+    transform-origin:left top;
+    left: 0;
+    transform:rotate(-45deg);
+    // width: calc( 100vw * 1712.34 / 1280);
+    width: calc( 100vw * 1802 / 1280);
+
+  }
+}

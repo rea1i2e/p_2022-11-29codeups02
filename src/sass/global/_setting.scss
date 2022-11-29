@@ -26,8 +26,10 @@ body {
 }
 
 // フォントウェイト
+/* font-weight */
 $regular: 300;
 $normal: 400;
+$medium: 500;
 $bold: 700;
 
 ////////////////////
@@ -35,8 +37,35 @@ $bold: 700;
 ////////////////////
 
 //色指定（共通性のあるものは出来る限り指定すると良い）
-$black: #111;
+// 透過度
+$opacity: 0.6;
+$opacity1: 0.5;
+$opacity2: 0.2;
+$hover-opacity: 0.8;
+
+// 汎用色
+$black0: #000;
+$black1: #111;
+$black1-05: rgba( 7, 7, 7, 0.5);
+$black3: #333;
 $white: #fff;
+
+
+// アクセントカラー
+$accent-color: #f9f871;
+$accent-color2: #ffea2e;
+$accent-color3: #FFBA6A;
+
+// 警告色
+$warning-color1: #FF5757;
+$warning-color2: #FFDCDC;
+
+// スライドのページネーションの色
+$dot-color-defalt: #C4C4C4;
+
+// 見出し装飾
+$gray: #C4C4C4;
+
 
 
 ////////////////////
@@ -72,6 +101,22 @@ $mediaquerys: (
   @return math.div($pixels, 16) * 1rem;
 }
 
+@mixin lineHeightCrop($line-height:1.5) {
+  &::before {
+    display: block;
+    width: 0;
+    height: 0;
+    margin-top: calc((1 - #{$line-height}) * .5em);
+    content: "";
+  }
+  &::after {
+    display: block;
+    width: 0;
+    height: 0;
+    margin-bottom: calc((1 - #{$line-height}) * .5em);
+    content: "";
+  }
+ }
 
 ////////////////////
 // 非表示設定
@@ -90,4 +135,58 @@ $mediaquerys: (
   @include mq("md") {
     display: none;
   }
+}
+
+//layer-no
+// 0 body
+// 1 header,section,footer
+// 2 ex) .header__header-inner
+// 3 ex) .btn
+
+// .btn
+$layer3-btn: -1;
+
+// .background-line
+$layer1-background-line: -1;
+
+// body
+$layer0-body: 0;
+
+// header
+$layer1-header: 2;
+$layer2-header: 2;
+
+// header-nav
+$layer2-nav: 1;
+
+// main-view
+$layer1-mainveiw-base: -1;
+$layer1-mainveiw-fadeout: 1;
+$layer1-mainveiw-fadein: 2;
+$layer1-mainveiw-title: 3;
+
+// blog
+$layer3-stamp: 1;
+
+// レイアウト幅
+$inner: 1100px; // font-sizeなどで使っている変数なので、名前は変更しない
+$inner-860: 860px;
+$inner-800: 800px;
+$inner-696: 696px;
+$inner-sp: 600px;
+
+// 余白
+$padding-pc: 25px;
+// $padding-pc: rem(25);
+$padding-sp: 20px;
+
+body {
+  // background-color: $white;
+  position: relative;
+  z-index: $layer0-body;
+  background-color: $black1;
+  color: $white;
+  font-size: rem(16);
+  text-align: center;
+
 }

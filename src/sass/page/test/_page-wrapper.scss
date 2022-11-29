@@ -1,0 +1,11 @@
+@use "global" as *;
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vw;
+}
+
+.page-wrapper__main {
+  flex: 1;
+}

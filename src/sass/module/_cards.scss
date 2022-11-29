@@ -1,0 +1,78 @@
+@use "global" as *;
+
+.cards {
+  // background-color: green;
+  display: flex;
+  flex-direction: column;
+  // gap: rem(24);
+  @include mq("md") {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    // gap: calc( 100% * 25 / 1100);
+  }
+}
+.cards__item {
+  position: relative;
+  @include mq("md") {
+    width: calc( 100% * 350 / 1100);
+  }
+}
+
+.cards__item--small {
+  @include mq("md") {
+    width: calc( 100% * 251 / 1100);
+  }
+}
+
+.cards__item--small .card__title {
+  @include mq("md") {
+    font-size: rem(14);
+    line-height: calc( 35 / 14 );
+    letter-spacing: calc( 1em / 14 );
+  }
+}
+
+.cards__item--small .card__descript {
+  @include mq("md") {
+    display: none;
+  }
+}
+
+
+.cards__item:not(:last-child) {
+  margin-bottom: rem(24);
+  @include mq("md") {
+    margin-bottom: 0;
+  }
+}
+
+.cards__item:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3)) {
+  @include mq("md") {
+    margin-bottom: rem(25);
+  }
+}
+
+.cards__item--small:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3)):not(:nth-last-child(4)) {
+  @include mq("md") {
+    margin-bottom: rem(25);
+  }
+}
+
+.cards__item:not(:nth-child(3n+1)) {
+  @include mq("md") {
+    margin-left: calc( 100% * 25 / 1100);
+  }
+}
+
+.cards__item--small:not(:nth-child(4n+1)) {
+  @include mq("md") {
+    margin-left: calc( 100% * 32 / 1100);
+  }
+}
+
+.cards__item--small:nth-child(4n+1) {
+  @include mq("md") {
+    margin-left: 0;
+  }
+}

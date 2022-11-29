@@ -1,0 +1,33 @@
+@use "global" as *;
+
+.test-page {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: rem(100);
+  // height: calc(100vh - #{rem(175)});
+  // background-color: blue;
+}
+
+.test-page__title {
+  @include lineHeightCrop();
+  background-color: green;
+  font-size: rem(64);
+  letter-spacing: 1em;
+  line-height: 1.5;
+  margin-bottom: rem(32);
+}
+
+.test-page__title--fix {
+  text-indent: 1em;
+}
+
+.test-page__title--padding {
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.test-page__description {
+  margin-bottom: rem(64);
+}

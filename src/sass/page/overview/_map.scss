@@ -1,0 +1,26 @@
+@use "global" as *;
+
+.map {
+  position: relative;
+  width: 100%; // この指定があると、なぜか右側に余白ができる。
+  // margin-left: calc(50% - 50vw);
+  // margin-right: calc(50% - 50vw);
+
+}
+
+.map::before {
+  content:"";
+    display: block;
+    padding-top: 100% * ( 300 / 375 );
+    @include mq(md) {
+      padding-top: 100% * ( 367 / 1100 );
+    }
+}
+
+.map__iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

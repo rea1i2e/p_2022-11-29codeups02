@@ -1,0 +1,23 @@
+@use "global" as *;
+
+.works-case {
+  text-align: left;
+}
+
+.works-case__gallary-wrapper {
+  margin-right: calc(50% - 50vw);
+	margin-left: calc(50% - 50vw);
+  margin-bottom: rem(32);
+  @include mq(md) {
+    margin-right: initial;
+    margin-bottom: rem(80);
+    margin-left: initial;
+  }
+}
+
+.works-case__point-list {
+  margin-bottom: rem(80);
+  @include mq(md) {
+    margin-bottom: rem(104);
+  }
+}

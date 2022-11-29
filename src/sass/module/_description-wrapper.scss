@@ -1,0 +1,45 @@
+@use "global" as *;
+
+.description-wrapper {
+  // background-color: tomato;
+  @include mq("md") {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    // padding-bottom: (7.25); //h3のline-height分の調整
+    // width: calc( 100% * 511 / 1100 );
+  }
+}
+.description-wrapper__title {
+  // background-color: olive;
+  font-size: rem(20);
+  font-weight: $normal;
+  letter-spacing: calc( 2em / 20 );
+  margin-bottom: rem(23);
+  @include mq("md") {
+    font-size: rem(25);
+    letter-spacing: calc( 0.5em / 25 );
+    margin-bottom: rem(37);
+  }
+}
+.description-wrapper__description {
+  // background-color: lime;
+  font-size: rem(16);
+  letter-spacing: calc( 2em / 16 );
+  line-height: 1.45;
+  margin-bottom: rem(26);
+  text-align: left;
+  @include mq("md") {
+    font-size: rem(16);
+    letter-spacing: calc( 0.5em / 16 );
+    line-height: calc( 35 / 16);
+    margin-bottom: rem(48);
+  }
+}
+
+.description-wrapper__btn {
+  @include mq("md") {
+    width: rem(360);
+  }
+}

@@ -1,0 +1,70 @@
+@use "global" as *;
+
+.content__section-titles {
+  margin-bottom: rem(52.5);
+  @include mq("md") {
+    margin-bottom: rem(49);
+	}
+}
+.content__wrapper {
+  // background-color: yellow;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: rem(71);
+  @include mq("md") {
+    margin-bottom: rem(150);
+  }
+}
+.content__list {
+  width: 50%;
+  @include mq("md") {
+    width: 25%;
+  }
+}
+// .content__image {
+//   position: relative;
+//   width: 100%;
+// }
+// .content__image::before {
+//   content:"";
+//   display: block;
+//   padding-top: calc( 100%* 168 / 187.5 ); /* 高さを幅の75%に固定 */
+//   @include mq("md") {
+//     padding-top: 100%;
+//   }
+// }
+
+
+// .content__image {
+//   background-position: center center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   position: absolute;
+//     bottom: 0;
+//     left: 0;
+//     top: 0;
+//     right: 0;
+// }
+
+
+// .content__link {
+//   position: relative;
+// }
+
+// .content__link::after {
+//   content: "";
+//   width: 100%;
+//   height: 100%;
+//   opacity: 0;
+//   opacity: 0.6;
+//   position: absolute;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//   transition: 0.3s;
+//   background: $white;
+// }
+
+// .content__link:hover::after {
+//   opacity: 0.6;
+// }

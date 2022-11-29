@@ -1,0 +1,89 @@
+@use "global" as *;
+
+.page-title {
+  position: relative;
+  width: 100%;
+}
+
+.page-title::before {
+  content: "";
+  display: block;
+  padding-top: calc(100% * 425 / 375);
+  @include mq("md") {
+    padding-top: calc(100% * 370 / 1280);
+  }
+}
+
+.page-title__image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+}
+
+.page-title__image--news {
+  background-image: url(../images/news/news__page-title-bg--sp.jpg);
+  @include mq("md") {
+    background-image: url(../images/news/news__page-title-bg--pc.jpg);
+  }
+}
+
+.page-title__image--content {
+  background-image: url(../images/content/content__page-title-bg--sp.jpg);
+  @include mq("md") {
+    background-image: url(../images/content/content__page-title-bg--pc.jpg);
+  }
+}
+
+.page-title__image--works {
+  background-image: url(../images/works/works__page-title-bg--sp.jpg);
+  @include mq("md") {
+    background-image: url(../images/works/works__page-title-bg--pc.jpg);
+  }
+}
+
+.page-title__image--overview {
+  background-image: url(../images/overview/overview__page-title-bg--sp.jpg);
+  @include mq("md") {
+    background-image: url(../images/overview/overview__page-title-bg--pc.jpg);
+  }
+}
+
+.page-title__image--blog {
+  background-image: url(../images/blog/blog__page-title-bg--sp.jpg);
+  @include mq("md") {
+    background-image: url(../images/blog/blog__page-title-bg--pc.jpg);
+  }
+}
+
+.page-title__image--contact {
+  background-image: url(../images/contact/contact__page-title-bg--sp.jpg);
+  @include mq("md") {
+    background-image: url(../images/contact/contact__page-title-bg--pc.jpg);
+  }
+}
+
+.page-title__text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: rem(30);
+  font-weight: $bold;
+  letter-spacing: calc(2em / 30);
+  padding-left: calc(2em / 30);
+  @include mq("md") {
+    font-size: rem(35);
+    letter-spacing: calc(2em / 35);
+    padding-left: calc(2em / 35);
+  }
+}
+
+.page-title__text--shadow {
+  text-shadow: 0 0 10px $black3;
+}

@@ -1,0 +1,8 @@
+@use "global" as *;
+
+.points__item:not(:last-child) {
+  margin-bottom: rem(54);
+  @include mq(md) {
+    margin-bottom: rem(71);
+  }
+}

@@ -1,0 +1,8 @@
+@use "global" as *;
+
+.relative-articles__btn {
+  margin-bottom: rem(80);
+  @include mq(md) {
+    margin-bottom: rem(32);
+  }
+}

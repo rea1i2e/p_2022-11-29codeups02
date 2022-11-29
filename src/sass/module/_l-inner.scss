@@ -1,0 +1,45 @@
+@use "global" as *;
+
+.l-inner {
+  // background-color: green;
+  width: 100%;
+  max-width: $inner-sp + strip-unit($padding-sp) * 2;
+  padding-right: $padding-sp;
+  padding-left: $padding-sp;
+  margin-right: auto;
+  margin-left: auto;
+  @include mq("md") {
+    // background-color: yellow;
+    max-width: $inner + strip-unit($padding-pc) * 2;
+    padding-right: $padding-pc;
+    padding-left: $padding-pc;
+  }
+}
+
+.l-inner--sp-full {
+  max-width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+  @include mq("md") {
+    max-width: $inner + strip-unit($padding-pc) * 2;
+    padding-right: $padding-pc;
+    padding-left: $padding-pc;
+  }
+}
+
+.l-inner--860 {
+  @include mq("md") {
+    max-width: $inner-860 + strip-unit($padding-pc) * 2;
+  }
+}
+
+.l-inner--800 {
+  @include mq("md") {
+    max-width: $inner-800 + strip-unit($padding-pc) * 2;
+  }
+}
+.l-inner--696 {
+  @include mq("md") {
+    max-width: $inner-696 + strip-unit($padding-pc) * 2;
+  }
+}

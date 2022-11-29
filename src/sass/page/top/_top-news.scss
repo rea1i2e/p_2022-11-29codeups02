@@ -1,0 +1,34 @@
+@use "global" as *;
+
+.top-news {
+  // background-color: orange;
+  margin-bottom: rem(112);
+  @include mq("md") {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: rem(174);
+  }
+}
+
+.top-news__wrapper {
+  // background-color: blue;
+  @include mq("md") {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+.top-news__news-item {
+  margin-bottom: rem(28);
+}
+
+.top-news__btn {
+  width:100%;
+  @include mq("md") {
+    margin-left: rem(48);
+    width: rem(134);
+  }
+}
+

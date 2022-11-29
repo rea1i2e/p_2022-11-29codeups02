@@ -1,0 +1,33 @@
+@use "global" as *;
+
+.description__main-title {
+  font-size: rem(20);
+  font-weight: $regular;
+  letter-spacing: calc( 2em / 20 );
+  margin-bottom: rem(23);
+  padding-left: calc( 2em / 20 );
+  @include mq(md) {
+    margin-bottom: rem(21);
+    font-size: rem(25);
+    letter-spacing: ( 2em / 25 );
+    text-indent: ( 2em / 25 );
+  }
+}
+
+.description__main-text {
+  font-size: rem(16);
+  font-weight: $regular;
+  line-height: 1.45;
+  letter-spacing: calc( 2em / 16 );
+  margin-bottom: rem(86);
+  text-align: left;
+  @include mq("md") {
+    margin-bottom: rem(150);
+    width: calc( 100% * 570 / 1100);
+    margin-left: auto;
+    margin-right: auto;
+    line-height: calc( 35 / 16);
+  }
+
+}
+

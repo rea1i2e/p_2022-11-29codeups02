@@ -1,0 +1,34 @@
+@use "global" as *;
+
+.works__section-titles {
+  margin-bottom: rem(52.5);
+  @include mq("md") {
+    margin-bottom: rem(40);
+	}
+}
+
+.works__background {
+  @include mq("md") {
+    background: linear-gradient(90deg, transparent 0%, transparent 30%, $black3 30%, $black3 100%);
+  }
+  @include mq("xl") {
+    background: linear-gradient(90deg, transparent 0%, transparent calc(50% - 256px), $black3 calc(50% - 256px), $black3 100%);
+  }
+}
+
+
+.works__image-text-wrapper {
+  @include mq("md") {
+    flex-direction: row;
+    // padding-bottom: rem(56);
+  }
+}
+
+// .works__description-wrapper {
+//   width:100%;
+//   @include mq("md") {
+//     margin-left: calc( 100% * 32 / 1100 );
+//     width: calc( 100% * 511 / 1100 );
+//   }
+// }
+

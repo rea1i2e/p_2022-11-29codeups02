@@ -1,0 +1,8 @@
+@use "global" as *;
+
+.l-category-wrapper {
+  margin-bottom: rem(14);
+  @include mq(md) {
+    margin-bottom: rem(41);
+  }
+}

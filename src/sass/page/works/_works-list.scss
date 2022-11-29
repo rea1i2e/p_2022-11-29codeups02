@@ -1,0 +1,27 @@
+@use "global" as *;
+
+.works-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.works-list__works-item {
+  width: 100%;
+  @include mq("md") {
+    width: calc( 100% * 525 / 1100 );
+  }
+}
+
+.works-list__works-item:not(:last-child) {
+  margin-bottom: rem(49);
+  @include mq(md) {
+    margin-bottom: rem(116);
+  }
+}
+
+.works-list__works-item:nth-last-child(2) {
+  @include mq("md") {
+    margin-bottom: 0;
+  }
+}

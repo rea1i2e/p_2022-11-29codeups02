@@ -1,0 +1,22 @@
+@use "global" as *;
+
+.l-breadcrumb {
+  margin-bottom: rem(83);
+  @include mq("md") {
+    margin-bottom: rem(67);
+  }
+}
+
+.l-breadcrumb--list-page {
+  @include mq(md) {
+    margin-bottom: rem(113);
+  }
+}
+
+.l-breadcrumb--without-page-title {
+  padding-top: rem(62);
+}
+
+.l-breadcrumb--detail-page {
+  margin-top: rem(50);
+}

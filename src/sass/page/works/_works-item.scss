@@ -1,0 +1,63 @@
+@use "global" as *;
+
+.works-item--category01 {
+  position: relative;
+}
+
+.works-item--category01::after {
+  background-color: $black1;
+  content: "カテゴリ１";
+  position: absolute;
+  top:0;
+  right: calc(50% - 50vw);
+  height: rem(40);
+  line-height: rem(40);
+  letter-spacing: calc( 2em / 16);
+  width: rem(128);
+  @include mq("md") {
+    right: 0;
+  }
+}
+
+
+
+.works-item__image {
+  position: relative;
+  margin-bottom: rem(28);
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  // width: 100%;
+  @include mq("md") {
+    margin-bottom: rem(15);
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.works-item__image::before {
+  content:"";
+  display: block;
+  padding-top: calc( 100% * 249 / 375 ); // アスペクト比を固定(sp)
+  @include mq("md") {
+    padding-top: calc( 100% * 349 / 525 ); // アスペクト比を固定(pc)
+  }
+}
+
+.works-item__image img {
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+}
+
+
+.works-item__title {
+  font-size: rem(20);
+  font-weight: $medium;
+  letter-spacing: calc( 2em / 20);
+  text-indent: calc( 2em / 20);
+}

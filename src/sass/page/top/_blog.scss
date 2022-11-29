@@ -1,0 +1,23 @@
+@use "global" as *;
+
+.blog__section-titles {
+  margin-bottom: rem(69);
+  @include mq("md") {
+    margin-bottom: rem(39);
+	}
+}
+
+.blog__list {
+  margin-bottom: rem(24);
+  @include mq("md") {
+    margin-bottom: rem(48);
+	}
+}
+
+.blog__btn {
+  @include mq("md") {
+    width: rem(360);
+  }
+}
+
+

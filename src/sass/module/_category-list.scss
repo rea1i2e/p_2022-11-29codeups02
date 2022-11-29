@@ -1,0 +1,40 @@
+@use "global" as *;
+
+.category-list {
+  text-align: left;
+  margin-left: rem(-22);
+  margin-bottom: rem(-16);
+  font-size: 0;
+  @include mq(md) {
+    margin-left: rem(-38);
+  }
+}
+
+.category-list__category-item {
+  display: inline-block;
+  cursor: pointer;
+  margin-left: rem(22); // 一番左の予約は、、親要素のネガティブマージンで打ち消し
+  margin-bottom: rem(16); // 一番下の行の余白は、親要素のネガティブマージンで打ち消し
+  padding-top: rem(1);
+  padding-bottom: rem(4);
+  font-size: rem(16);
+  letter-spacing: calc( 2em / 16);
+  text-indent: calc( 2em / 16);
+  text-transform: uppercase;
+  @include mq(md) {
+    margin-left: rem(38);
+  }
+}
+
+.category-list__category-item--acrive {
+  padding-left: rem(6.5);
+  padding-right: rem(6.5);
+  background-color: $white;
+  color:$black3;
+  @include mq(md) {
+    padding-left: rem(8);
+    padding-right: rem(8);
+  }
+  }
+
+

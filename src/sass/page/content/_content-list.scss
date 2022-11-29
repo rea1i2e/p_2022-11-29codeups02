@@ -1,0 +1,11 @@
+@use "global" as *;
+
+.content-list__content-item:not(:last-child) {
+    margin-bottom: rem(51);
+    @include mq("md") {
+    margin-bottom: rem(104);
+  }
+}
+.content-list__content-item:nth-child(even) {
+  flex-direction: row-reverse;
+}

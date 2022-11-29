@@ -1,0 +1,39 @@
+@use "global" as *;
+
+.breadcrumb__list {
+  text-align: left;
+}
+
+.breadcrumb__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: rem(16);
+  letter-spacing: calc( 1em / 16);
+}
+
+.breadcrumb__item {
+  display: inline;/*横に並ぶように*/
+  list-style: none;
+  // font-weight: bold;/*太字*/
+}
+
+.breadcrumb__item:after {/* >を表示*/
+  content: '>';
+  // padding: 0 0.2em;
+  padding: 0;
+  // color: #555;
+}
+
+.breadcrumb__item:last-child:after {
+  content: '';
+}
+
+.breadcrumb__item a {
+  text-decoration: none;
+  // color: #52b5ee;/*色*/
+}
+
+// .breadcrumb__item a:hover {
+//   text-decoration: underline;
+// }

@@ -1,0 +1,102 @@
+@use "global" as *;
+
+.article {
+  text-align: left;
+  font-size: rem(16);
+  font-weight: $regular;
+  letter-spacing: calc( 0.4em / 16 );
+  line-height: calc(35 / 16 );
+}
+
+.article__l-inner {
+  margin-bottom: rem(-24); // 記事末尾の余白を打ち消し
+}
+
+.article__image {
+  position: relative;
+  margin-right: calc(50% - 50vw);
+  margin-bottom: rem(24);
+  margin-left: calc(50% - 50vw);
+  @include mq(md) {
+    margin-right: initial;
+    margin-left: initial;
+  }
+}
+
+.article__image::before {
+  content:"";
+  display: block;
+  padding-top: 100% * ( 251 / 375 );
+  @include mq(md) {
+    padding-top: 100% * ( 427 / 799 );
+  }
+}
+
+.article__image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.article__txt {
+  margin-bottom: rem(24);
+  
+}
+
+.article__heading2 {
+  display: inline-block;
+  border-left: rem(3) solid $gray;
+  margin-bottom: rem(24);
+  padding-left: rem(9);
+  font-size: rem(20);
+  font-weight: $regular;
+  letter-spacing: calc( 2em / 20 );
+  line-height: calc(29 / 20 );
+}
+
+.article__heading3 {
+  display: inline-block;
+  position: relative;
+  margin-bottom: rem(24);
+  padding-left: rem(9);
+  padding-bottom: rem(4);
+  font-size: rem(18);
+  font-weight: $regular;
+  letter-spacing: calc( 2em / 18 );
+}
+
+.article__heading3::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+    right: 0;
+    bottom: 0;
+    left: rem(9);
+    height: rem(3);
+  width: calc( 100% - #{rem(9)} );
+  background: linear-gradient(90deg, $accent-color 0%, $accent-color 33%, $white 33%, $white 100%);
+  
+}
+
+.article__unordered-list {
+  list-style-position: inside;
+  list-style-type: disc;
+  margin-bottom: rem(24);
+}
+
+.article__ordered-list {
+  list-style-position: inside;
+  counter-reset: number 0;
+  margin-bottom: rem(24);
+}
+
+.article__ordered-list-item::before {
+  counter-increment: number 1;
+  content: counter(number) " ";
+}
+
