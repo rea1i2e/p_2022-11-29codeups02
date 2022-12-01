@@ -525,17 +525,8 @@ select::-ms-expand {
 	transform: translateX(100%);
 	-webkit-transition: 0.3s;
 	transition: 0.3s;
-	-webkit-transition: -webkit-transform 0.3s;
-	transition: -webkit-transform 0.3s;
-	transition: transform 0.3s;
-	transition: transform 0.3s, -webkit-transform 0.3s;
 	width: 100%;
 	z-index: 1;
-}
-
-.header__nav.open {
-	-webkit-transform: translateX(0);
-	transform: translateX(0);
 }
 
 .header__nav-wrapper {
@@ -2043,8 +2034,8 @@ form#mail_form input[type=button]:hover {
 }
 
 .top-mainview {
-	margin-bottom: 24px;
-	margin-bottom: 1.5rem;
+	margin-bottom: 50px;
+	margin-bottom: 3.125rem;
 }
 
 .top-news {
@@ -3281,6 +3272,62 @@ html {
 
 html {
 	font-size: 4.2666666667vw;
+}
+
+}
+
+@-webkit-keyframes appear {
+
+0% {
+	-webkit-transform: translateX(100%);
+	transform: translateX(100%);
+}
+
+100% {
+	-webkit-transform: translateX(0%);
+	transform: translateX(0%);
+}
+
+}
+
+@keyframes appear {
+
+0% {
+	-webkit-transform: translateX(100%);
+	transform: translateX(100%);
+}
+
+100% {
+	-webkit-transform: translateX(0%);
+	transform: translateX(0%);
+}
+
+}
+
+@-webkit-keyframes disappear {
+
+0% {
+	-webkit-transform: translateX(0%);
+	transform: translateX(0%);
+}
+
+100% {
+	-webkit-transform: translateX(100%);
+	transform: translateX(100%);
+}
+
+}
+
+@keyframes disappear {
+
+0% {
+	-webkit-transform: translateX(0%);
+	transform: translateX(0%);
+}
+
+100% {
+	-webkit-transform: translateX(100%);
+	transform: translateX(100%);
 }
 
 }
