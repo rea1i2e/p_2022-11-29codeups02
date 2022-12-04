@@ -4,35 +4,38 @@
   <div class="mainview__slide" style="background-image: url(<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/top/mv01.jpg)"></div>
   <div class="mainview__slide" style="background-image: url(<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/top/mv02.jpg)"></div>
   <div class="mainview__slide" style="background-image: url(<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/top/mv03.jpg)"></div>
-  <!-- キャプチャ撮影用 -->
-  <!-- <div class="mainview__slide0" style="background-image: url(assets/images/top/mv01.jpg)"></div> -->
   <div class="mainview__title">
     <h2 class="mainview__main-title">メインタイトルが入ります</h2>
     <p class="mainview__sub-title">サブタイトルが入ります</p>
   </div>
 </div>
 
-<!-- お知らせ ここから -->
 <div class="top-news">
   <div class="top-news__l-inner l-inner">
     <div class="top-news__wrapper">
-      <dl class="top-news__news-item news-item">
-        <dt class="news-item__date js-test">あ2020.07.20</dt>
-        <dd class="news-item__category">お知らせ</dd>
-        <dd class="news-item__title"><a class="news-item__link" href="">記事タイトルが入ります。記事タイトルが入ります。記事タイトルが入ります。</a></dd>
-      </dl>
-      <div class="top-news__btn">
-        <a href="/news/" class="btn btn--pc-small"><span class="btn--pc-small__txt">
-            すべて見る
-          </span>
-        </a>
-      </div>
+      <?php if (have_posts()) : ?>
+        <dl class="top-news__news-items news-items">
+          <?php while (have_posts()) : the_post(); ?>
+            <div class="news-items__news-item news-item">
+              <dt class="news-item__date"><?php echo get_the_date('Y.m.d') ?></dt>
+              <dd class="news-item__category"><?php the_category(); ?></dd>
+              <dd class="news-item__title"><a class="news-item__link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></dd>
+            </div>
+          <?php endwhile; ?>
+        </dl>
+        <div class="top-news__btn">
+          <a href="/news/" class="btn btn--pc-small"><span class="btn--pc-small__txt">
+              すべて見る
+            </span>
+          </a>
+        </div>
+      <?php else : ?>
+        <p>お知らせはありません。</p>
+      <?php endif; ?>
     </div>
   </div>
 </div>
-<!-- お知らせ ここまで -->
 
-<!-- 事業内容 ここから -->
 <section class="content top-content" id="content">
   <div class="content__l-inner l-inner">
     <div class="content__section-titles section-titles">
@@ -82,9 +85,7 @@
 
   </ul><!-- /.content__wrapper -->
 </section>
-<!-- 事業内容 ここまで -->
 
-<!-- 制作実績 ここから -->
 <section class="works top-works" id="works">
   <div class="works__l-inner l-inner l-inner--sp-full">
     <div class="works__section-titles section-titles">
@@ -93,26 +94,42 @@
     </div><!-- /.section-titles -->
   </div><!-- /.works__l-inner -->
 
+  <!-- テスト表示2 -->
+  <?php
+  $args = [
+    'post_type' => 'works',
+    'posts_per_page' => 3,
+  ];
+  $the_query = new WP_Query($args);
+  ?>
+
   <div class="works__background">
     <div class="works__l-inner l-inner l-inner--sp-full">
       <div class="works__image-text-wrapper image-text-wrapper">
         <div class="image-text-wrapper__image-wrapper">
           <div class="image-text-wrapper__js-slick-slider js-slick-slider">
-            <div class="js-slick-slider__image image image--with-text">
-              <img class="image__img" src="<?php echo esc_url(get_theme_file_uri('/assets/images/top/works-image01.jpg')); ?>" alt="制作実績のイメージ画像">
-            </div>
-            <div class="js-slick-slider__image image image--with-text">
-              <img class="image__img" src="<?php echo esc_url(get_theme_file_uri('/assets/images/top/works-image02.jpg')); ?>" alt="制作実績のイメージ画像">
-            </div>
-            <div class="js-slick-slider__image image image--with-text">
-              <img class="image__img" src="<?php echo esc_url(get_theme_file_uri('/assets/images/top/works-image03.jpg')); ?>" alt="制作実績のイメージ画像">
-            </div>
+            <?php if ($the_query->have_posts()) : ?>
+              <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                <?php
+                $rows = get_field('images_works'); // すべてのrow（内容・行）をいったん取得する
+                $first_row = $rows[0]; // 1行目だけを$first_rowに格納しますよ～
+                $first_row_image = $first_row['image_works']; // get the sub field value 
+                ?>
+                <div class="js-slick-slider__image image image--with-text">
+                  <img class="image__img" src="<?php echo $first_row_image; ?>" alt="制作実績のイメージ画像" />
+                </div>
+              <?php endwhile; ?>
+            <?php endif; ?>
+
           </div>
         </div><!-- /.image-text-wrapper__image-wrapper -->
         <div class="image-text-wrapper__description-wrapper description-wrapper">
-          <h3 class="description-wrapper__title">メインタイトルが入ります</h3>
+          <h3 class="description-wrapper__title">カスタム投稿の制作実績から最新のものを3枚取得して表示</h3>
           <p class="description-wrapper__description">
-            テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
+            制作実績詳細ページは、カスタム投稿タイプで作成。<br />
+            そのページでは、カスタムフィールドを作成して、制作実績のイメージ画像、その他制作のポイントを説明する文章を入力するためのフィールドを3つ作成した。<br />
+            イメージ画像は、繰り返しカスタムフィールドを利用することで、任意の枚数登録できるようにした。<br />
+            トップページでは、サブクエリを利用して、制作実績の投稿タイプのデータを3件取得し、繰り返しカスタムフィールドの1枚目の画像だけをスライダーで表示。
           </p>
           <div class="description-wrapper__btn">
             <a href="/works/" class="btn">詳しく見る</a>
@@ -182,7 +199,7 @@
       <li class="cards__item card">
         <a class="card__link" href="/blog/article001/">
           <div class="card__image image image--card">
-          <img class="image__img" src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/card02.jpg')); ?>" alt="カードのイメージ画像">
+            <img class="image__img" src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/card02.jpg')); ?>" alt="カードのイメージ画像">
           </div>
           <div class="card__text-wrapper">
             <h3 class="card__title">タイトルが入ります。タイトルが入ります。</h3>
@@ -197,7 +214,7 @@
       <li class="cards__item card">
         <a class="card__link" href="/blog/article001/">
           <div class="card__image image image--card">
-          <img class="image__img" src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/card03.jpg')); ?>" alt="カードのイメージ画像">
+            <img class="image__img" src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/card03.jpg')); ?>" alt="カードのイメージ画像">
           </div>
           <div class="card__text-wrapper">
             <h3 class="card__title">タイトルが入ります。タイトルが入ります。</h3>

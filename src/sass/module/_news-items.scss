@@ -1,0 +1,5 @@
+@use "global" as *;
+
+.news-items__news-item:nth-child(n+2) {
+  margin-top: rem(32);
+}

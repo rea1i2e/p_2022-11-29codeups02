@@ -37,9 +37,11 @@ function my_script_init()
 
 	wp_enqueue_style( 'slick-theme', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css');
 	wp_enqueue_style( 'slick', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
+	wp_enqueue_style( 'swiper', 'https://unpkg.com/swiper/swiper-bundle.min.css');
 	wp_enqueue_style( 'my', get_template_directory_uri() . '/assets/css/styles.css', array(), '1.0.1', 'all' );
 
 	wp_enqueue_script( 'slick', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array( 'jquery' ), '1.0.1', true );
+	wp_enqueue_script( 'swiper', 'https://unpkg.com/swiper/swiper-bundle.min.js', array( 'jquery' ), '1.0.1', true );
 	wp_enqueue_script( 'my', get_template_directory_uri() . '/assets/js/script.min.js', array( 'jquery' ), '1.0.1', true );
 
 }
@@ -149,3 +151,16 @@ function my_excerpt_more( $more ) {
 
 }
 add_filter( 'excerpt_more', 'my_excerpt_more' );
+
+
+// メインクエリの変更
+function change_set_post($query){
+	if(is_admin() || !$query->is_main_query()){
+	 return;
+	}
+	if($query->is_front_page()){
+	 $query->set('posts_per_page','1');
+	 return;
+	}
+}
+add_action('pre_get_posts','change_set_post');

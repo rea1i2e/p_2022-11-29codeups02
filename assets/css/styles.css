@@ -895,6 +895,11 @@ select::-ms-expand {
 	text-decoration: none;
 }
 
+.news-items__news-item:nth-child(n+2) {
+	margin-top: 32px;
+	margin-top: 2rem;
+}
+
 .page-heading {
 	margin-bottom: 16px;
 	margin-bottom: 1rem;
