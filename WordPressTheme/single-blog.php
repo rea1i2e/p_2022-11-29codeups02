@@ -45,33 +45,17 @@
           ?>
         </div>
         <div class="article__image">
-          <?php if(has_post_thumbnail()) { ?>
-            <?php the_post_thumbnail('full'); ?>
-            <?php } else { ?>
-              <img class="image__img" src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/no-image.png')); ?>" alt="no image">
-          <?php } ?>
+<?php if(has_post_thumbnail()) { ?>
+  <?php the_post_thumbnail('full'); ?>
+  <?php } else { ?>
+    <img class="image__img" src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/no-image.png')); ?>" alt="no image">
+<?php } ?>
         </div>
-        <p class="article__txt">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
-        <h2 class="article__heading2">見出し2</h2>
-        <p class="article__txt">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
-        <h2 class="article__heading3">見出し3見出し3見出し3</h2>
-        <p class="article__txt">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
-        <div class="article__image">
-          <img src="/assets/images/blog/article001/article001-image02.jpg" alt="">
+
+        <div class="article__post">
+          <?php the_content(); ?>
         </div>
-        <ul class="article__unordered-list">
-          <li class="article__unordered-list-item">リストが入ります。リストが入ります。リストが入ります。リストが入ります。</li>
-          <li class="article__unordered-list-item">リストが入ります。リストが入ります。リストが入ります。リストが入ります。</li>
-          <li class="article__unordered-list-item">リストが入ります。リストが入ります。リストが入ります。リストが入ります。</li>
-          <li class="article__unordered-list-item">リストが入ります。リストが入ります。リストが入ります。リストが入ります。</li>
-        </ul>
-        <ol class="article__ordered-list">
-          <li class="article__ordered-list-item">リストが入ります。リストが入ります。リストが入ります。リストが入ります。</li>
-          <li class="article__ordered-list-item">リストが入ります。リストが入ります。リストが入ります。リストが入ります。</li>
-          <li class="article__ordered-list-item">リストが入ります。リストが入ります。リストが入ります。リストが入ります。</li>
-          <li class="article__ordered-list-item">リストが入ります。リストが入ります。リストが入ります。リストが入ります。</li>
-          <li class="article__ordered-list-item">リストが入ります。リストが入ります。リストが入ります。リストが入ります。</li>
-        </ol>
+
 
         <?php endwhile; ?>
         <?php endif; ?>

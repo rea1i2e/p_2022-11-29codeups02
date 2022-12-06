@@ -43,12 +43,12 @@
   height: 100%;
 }
 
-.article__txt {
+.article__post p {
   margin-bottom: rem(24);
   
 }
 
-.article__heading2 {
+.article__post h2 {
   display: inline-block;
   border-left: rem(3) solid $gray;
   margin-bottom: rem(24);
@@ -59,7 +59,7 @@
   line-height: calc(29 / 20 );
 }
 
-.article__heading3 {
+.article__post h3 {
   display: inline-block;
   position: relative;
   margin-bottom: rem(24);
@@ -70,7 +70,7 @@
   letter-spacing: calc( 2em / 18 );
 }
 
-.article__heading3::after {
+.article__post h3::after {
   content: "";
   display: inline-block;
   position: absolute;
@@ -83,19 +83,19 @@
   
 }
 
-.article__unordered-list {
+.article__post ul {
   list-style-position: inside;
   list-style-type: disc;
   margin-bottom: rem(24);
 }
 
-.article__ordered-list {
+.article__post ol {
   list-style-position: inside;
   counter-reset: number 0;
   margin-bottom: rem(24);
 }
 
-.article__ordered-list-item::before {
+.article__post ol li::before {
   counter-increment: number 1;
   content: counter(number) " ";
 }
