@@ -139,7 +139,6 @@
     </div><!-- /.works__background -->
   </div><!-- /.works__l-inner -->
 </section>
-<!-- 制作実績 ここまで -->
 
 
 <section class="overview top-overview" id="overview">
@@ -173,24 +172,6 @@
   </div><!-- /.overview__background -->
 </section><!-- /.overview -->
 
-<?php
-				$args = [
-					'post_type' => 'blog',
-					'posts_per_page' => 3 // ページ数の制限なし
-				];
-				$the_query = new WP_Query($args);
-				?>
-				<?php if($the_query->have_posts()) : ?>
-					<ul>
-						<?php while($the_query->have_posts()) : $the_query->the_post(); ?>
-						<li>
-							<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-						</li>
-						<?php endwhile; ?>
-					</ul>
-					<?php else : ?>
-					<!-- 投稿がない場合の内容 -->
-				<?php endif; ?>
 
 <section class="blog top-blog" id="blog">
   <div class="blog__inner l-inner">
@@ -200,51 +181,58 @@
       <h2 class="section-titles__section-title section-titles__section-title--blog">ブログ</h2>
     </div>
     <ul class="blog__list cards">
-      <li class="cards__item card card-new">
-        <a class="card__link" href="/blog/article001/">
-          <div class="card__image image image--card">
-            <img class="image__img" src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/card01.jpg')); ?>" alt="カードのイメージ画像">
-          </div>
-          <div class="card__text-wrapper">
-            <h3 class="card__title">タイトルが入ります。タイトルが入ります。</h3>
-            <p class="card__descript">説明文が入ります。説明文が入ります。説明文が入ります。</p>
-            <div class="card__category-date">
-              <div class="card__category">カテゴリ</div>
-              <div class="card__date">2021.07.20</div>
-            </div>
-          </div>
-        </a>
-      </li>
-      <li class="cards__item card">
-        <a class="card__link" href="/blog/article001/">
-          <div class="card__image image image--card">
-            <img class="image__img" src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/card02.jpg')); ?>" alt="カードのイメージ画像">
-          </div>
-          <div class="card__text-wrapper">
-            <h3 class="card__title">タイトルが入ります。タイトルが入ります。</h3>
-            <p class="card__descript">説明文が入ります。説明文が入ります。説明文が入ります。</p>
-            <div class="card__category-date">
-              <div class="card__category">カテゴリ</div>
-              <div class="card__date">2021.07.20</div>
-            </div>
-          </div>
-        </a>
-      </li>
-      <li class="cards__item card">
-        <a class="card__link" href="/blog/article001/">
-          <div class="card__image image image--card">
-            <img class="image__img" src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/card03.jpg')); ?>" alt="カードのイメージ画像">
-          </div>
-          <div class="card__text-wrapper">
-            <h3 class="card__title">タイトルが入ります。タイトルが入ります。</h3>
-            <p class="card__descript">説明文が入ります。説明文が入ります。説明文が入ります。</p>
-            <div class="card__category-date">
-              <div class="card__category">カテゴリ</div>
-              <div class="card__date">2021.07.20</div>
-            </div>
-          </div>
-        </a>
-      </li>
+      <?php
+      $args = [
+        'post_type' => 'blog',
+        'posts_per_page' => 3
+      ];
+      $the_query = new WP_Query($args);
+      ?>
+      <?php if ($the_query->have_posts()) : ?>
+        <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+          <li class="cards__item card card-new">
+            <a class="card__link" href="<?php the_permalink(); ?>">
+              <div class="card__image image image--card">
+                <?php if (has_post_thumbnail()) { ?>
+                  <?php the_post_thumbnail('full'); ?>
+                <?php } else { ?>
+                  <img class="image__img" src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/no-image.png')); ?>" alt="no image">
+                <?php } ?>
+              </div>
+              <div class="card__text-wrapper">
+                <h3 class="card__title">
+                  <?php the_title(); ?>
+                </h3>
+                <div class="card__descript">
+                  <?php the_excerpt(); ?>
+                </div>
+                <div class="card__category-date">
+                  <?php
+                  $terms = get_the_terms($post->ID, 'blog_category');
+                  foreach ($terms as $term) {
+                    echo '<div class="card__category">' . $term->name . '</div>';
+                  }
+                  ?>
+
+                  <div class="card__date">
+                    <?php echo get_the_date('Y.m.d') ?>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <?php
+            $days = 2; //表示させたい日数
+            $post_entry = get_the_time('U');
+            $article = time() - ($days * 86400);
+            if ($post_entry > $article) {
+              echo '<span class="card__label-new">New</span>';
+            }
+            ?>
+          </li>
+        <?php endwhile; ?>
+      <?php else : ?>
+        <!-- 投稿がない場合の内容 -->
+      <?php endif; ?>
     </ul>
     <a href="/blog/" class="blog__btn btn">詳しく見る</a>
   </div><!-- /.blog__inner l-inner -->

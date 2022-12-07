@@ -260,11 +260,10 @@ select::-ms-expand {
 	width: 100%;
 }
 
-.card-new::before {
+.card__label-new {
 	background: #FFBA6A;
 	border-radius: 50%;
 	color: #333;
-	content: "New";
 	height: 60px;
 	height: 3.75rem;
 	left: -15px;
@@ -305,6 +304,9 @@ select::-ms-expand {
 }
 
 .card__title {
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2; /* 制限したい行数が3の場合 */
+	display: -webkit-box;
 	font-size: 18px;
 	font-size: 1.125rem;
 	font-weight: 500;
@@ -312,9 +314,13 @@ select::-ms-expand {
 	line-height: 1.9444444444;
 	margin-bottom: 4.5px;
 	margin-bottom: 0.28125rem;
+	overflow: hidden;
 }
 
-.card__descript {
+.card__descript p {
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	display: -webkit-box;
 	font-size: 14px;
 	font-size: 0.875rem;
 	font-weight: 400;
@@ -322,6 +328,7 @@ select::-ms-expand {
 	line-height: 1.8571428571;
 	margin-bottom: 9px;
 	margin-bottom: 0.5625rem;
+	overflow: hidden;
 }
 
 .card__category-date {
@@ -375,6 +382,18 @@ select::-ms-expand {
 .cards__item:not(:last-child) {
 	margin-bottom: 24px;
 	margin-bottom: 1.5rem;
+}
+
+.cards__item img {
+	-o-object-fit: cover;
+	bottom: 0;
+	height: 100%;
+	left: 0;
+	object-fit: cover;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 100%;
 }
 
 .category-list {
@@ -2345,10 +2364,12 @@ a:hover {
 
 .card__title {
 	margin-bottom: 0.421875rem;
+	min-height: 4.375rem;
 }
 
-.card__descript {
+.card__descript p {
 	margin-bottom: 0.75rem;
+	min-height: 3.25rem;
 }
 
 .card__category {

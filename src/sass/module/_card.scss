@@ -4,30 +4,25 @@
   width: 100%;
 }
 
-.card-new::before {
+.card__label-new {
+  position: absolute;
+  top: rem(-16);
+  left: rem(-15);
+  z-index: $layer3-stamp;
+  height: rem(60);
+  width: rem(60);
+  padding-left: calc(2em / 16);
   background: $accent-color3;
   border-radius: 50%;
   color: $black3;
-  content: "New";
-  width: rem(60);
-  height: rem(60);
-  line-height: rem(60);
-  letter-spacing: calc( 2em / 16);
-  padding-left: calc( 2em / 16);
-  position: absolute;
-    top: rem(-16);
-    left: rem(-15);
   text-align: center;
-  z-index: $layer3-stamp;
+  line-height: rem(60);
+  letter-spacing: calc(2em / 16);
 }
-
-
-
 
 .card__link:hover .card__text-wrapper {
   transition: 0.3s;
 }
-
 
 .card__link:hover .card__text-wrapper {
   background-color: $black3;
@@ -46,23 +41,34 @@
 }
 
 .card__title {
+  margin-bottom: rem(4.5);
   font-size: rem(18);
   font-weight: $medium;
-  line-height: calc( 35 / 18 );
-  letter-spacing: calc( 1em / 18 );
-  margin-bottom: rem(4.5);
+  line-height: calc(35 / 18);
+  letter-spacing: calc(1em / 18);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* 制限したい行数が3の場合 */
+  overflow: hidden;
   @include mq("md") {
+    min-height: rem(70);
     margin-bottom: rem(6.75);
   }
 }
 
-.card__descript {
+.card__descript p {
+  margin-bottom: rem(9);
   font-size: rem(14);
   font-weight: $normal;
-  line-height: calc( 26 / 14 );
-  letter-spacing: calc( 1em / 14 );
-  margin-bottom: rem(9);
+  line-height: calc(26 / 14);
+  letter-spacing: calc(1em / 14);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+
   @include mq("md") {
+    min-height: rem(52);
     margin-bottom: rem(12);
   }
 }
@@ -74,11 +80,11 @@
 
 .card__category {
   background-color: $accent-color2;
-  color:$black0;
+  color: $black0;
   font-size: rem(14);
   font-weight: $normal;
-  line-height: calc( 26 / 14 );
-  letter-spacing: calc( 1em / 14 );
+  line-height: calc(26 / 14);
+  letter-spacing: calc(1em / 14);
   line-height: rem(24);
   padding-left: rem(4);
   padding-right: rem(3);
@@ -92,7 +98,6 @@
 .card__date {
   font-size: rem(14);
   font-weight: $normal;
-  line-height: calc( 26 / 14 );
-  letter-spacing: calc( 1em / 14 );
-
+  line-height: calc(26 / 14);
+  letter-spacing: calc(1em / 14);
 }
