@@ -85,13 +85,11 @@ jQuery(function ($) {
   });
 
   // WordPressのツールバー位置を下部へ
-  $('html').css({
-    'cssText': 'margin-top: 0 !important;'
-  });
-  $("#wpadminbar").css({
-    top: "auto",
-    bottom: "0"
-  });
+  // $('html').css({'cssText': 'margin-top: 0 !important;'});
+  // $("#wpadminbar").css({
+  //   top: "auto",
+  //   bottom: "0"
+  // });
 });
 
 // swiper

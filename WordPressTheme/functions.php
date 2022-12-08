@@ -159,8 +159,8 @@ function change_set_post($query){
 	 return;
 	}
 	if($query->is_front_page()){
-	 $query->set('posts_per_page','1');
+	 $query->set('posts_per_page','3');
 	 return;
 	}
 }
-add_action('pre_get_posts','change_set_post');
+// add_action('pre_get_posts','change_set_post');

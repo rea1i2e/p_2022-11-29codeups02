@@ -1,5 +1,5 @@
 body {
-	font-family: "";
+	font-family: "Noto Sans JP", sans-serif;
 }
 
 /* font-weight */
@@ -1081,7 +1081,7 @@ select::-ms-expand {
 
 .section-titles__section-subtitle {
 	color: #f9f871;
-	font-family: "";
+	font-family: "Noto Serif JP", serif;
 	font-size: 50px;
 	font-size: 3.125rem;
 	font-weight: 400;

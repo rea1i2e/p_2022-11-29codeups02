@@ -64,7 +64,7 @@
 
 <div class='wp-pagenavi l-wp-pagenavi'>
   <a class="previouspostslink" rel="prev" href="#">prev</a>
-  <a class="wp-pagenavi__list" href="/works/">一覧</a>
+  <a class="wp-pagenavi__list" href="<?php echo get_post_type_archive_link('post'); ?>">一覧</a>
   <a class="nextpostslink" rel="next" href="#">next</a>
 </div>
 

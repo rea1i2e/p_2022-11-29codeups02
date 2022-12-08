@@ -23,6 +23,7 @@
             </div>
           <?php endwhile; ?>
         </dl>
+        <p><?php the_content(); ?></p>
         <div class="top-news__btn">
           <a href="/news/" class="btn btn--pc-small"><span class="btn--pc-small__txt">
               すべて見る
