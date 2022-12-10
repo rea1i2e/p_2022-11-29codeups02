@@ -162,7 +162,7 @@ select::-ms-expand {
 	display: none;
 }
 
-.breadcrumb__list {
+.breadcrumb {
 	text-align: left;
 }
 

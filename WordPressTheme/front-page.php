@@ -25,7 +25,12 @@
           <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
             <div class="news-items__news-item news-item">
               <dt class="news-item__date"><?php echo get_the_date('Y.m.d') ?></dt>
-              <dd class="news-item__category"><?php the_category(); ?></dd>
+              <dd class="news-item__category">
+                <?php $cat = get_the_category();
+                $cat = $cat[0]; {
+                  echo $cat->cat_name;
+                } ?>
+              </dd>
               <dd class="news-item__title"><a class="news-item__link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></dd>
             </div>
           <?php endwhile; ?>
@@ -246,6 +251,5 @@
 </section><!-- /.blog -->
 
 <?php get_template_part('contact'); ?>
-
 
 <?php get_footer(); ?>
