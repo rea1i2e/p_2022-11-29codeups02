@@ -13,9 +13,16 @@
 <div class="top-news">
   <div class="top-news__l-inner l-inner">
     <div class="top-news__wrapper">
-      <?php if (have_posts()) : ?>
+      <?php
+      $args = [
+        'post_type' => 'post',
+        'posts_per_page' => 1
+      ];
+      $the_query = new WP_Query($args);
+      ?>
+      <?php if ($the_query->have_posts()) : ?>
         <dl class="top-news__news-items news-items">
-          <?php while (have_posts()) : the_post(); ?>
+          <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
             <div class="news-items__news-item news-item">
               <dt class="news-item__date"><?php echo get_the_date('Y.m.d') ?></dt>
               <dd class="news-item__category"><?php the_category(); ?></dd>
@@ -23,7 +30,6 @@
             </div>
           <?php endwhile; ?>
         </dl>
-        <p><?php the_content(); ?></p>
         <div class="top-news__btn">
           <a href="/news/" class="btn btn--pc-small"><span class="btn--pc-small__txt">
               すべて見る

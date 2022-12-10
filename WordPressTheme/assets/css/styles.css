@@ -1197,7 +1197,7 @@ select::-ms-expand {
 
 .previouspostslink,
 .current,
-.page,
+.wp-pagenavi .page,
 .nextpostslink,
 .wp-pagenavi__list {
 	border: 1px solid #fff;
@@ -2067,7 +2067,7 @@ form#mail_form input[type=button]:hover {
 	margin-bottom: 7rem;
 }
 
-.top-news__news-item {
+.top-news__news-items {
 	margin-bottom: 28px;
 	margin-bottom: 1.75rem;
 }
