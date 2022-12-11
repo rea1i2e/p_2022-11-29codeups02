@@ -3,15 +3,15 @@
 .wp-pagenavi {
 	clear: both;
 	text-align: center;
-	font-size: 0;
+	// font-size: 0;
 }
 
-.previouspostslink,
-.current,
-.wp-pagenavi .page,
-.nextpostslink,
-.wp-pagenavi__list {
-	// .wp-pagenavi a, .wp-pagenavi span {
+// .previouspostslink,
+// .current,
+// .wp-pagenavi .page,
+// .nextpostslink,
+// .wp-pagenavi__list {
+	.wp-pagenavi a, .wp-pagenavi span {
 	display: inline-block;
 	color: $white;
 	border: 1px solid $white;
@@ -57,7 +57,8 @@
 	background-color: $accent-color;
 }
 
-.previouspostslink {
+// .previouspostslink {
+.wp-pagenavi a[rel="prev"] {
 	padding-left: rem(10);
 	padding-right: rem(10);
 	text-transform: uppercase;
@@ -65,7 +66,8 @@
 	text-indent: calc( 2em / 16 );
 }
 
-.nextpostslink {
+// .nextpostslink {
+	.wp-pagenavi a[rel="next"] {
 	padding-left: rem(10);
 	padding-right: rem(10);
 	text-transform: uppercase;

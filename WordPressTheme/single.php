@@ -25,6 +25,14 @@
   </div>
 </div>
 
+<div class="blog-breadcrumb breadcrumb l-breadcrumb l-breadcrumb--detail-page">
+  <div class="breadcrumb__l-inner l-inner" typeof="BreadcrumbList" vocab="https://schema.org/">
+    <?php if (function_exists('bcn_display')) {
+      bcn_display();
+    } ?>
+  </div>
+</div>
+
 
 
 
@@ -56,31 +64,21 @@
         </div>
 
 
-      <?php endwhile; ?>
-    <?php endif; ?>
 
   </div>
 </article>
 
 <div class='wp-pagenavi l-wp-pagenavi'>
-  <a class="previouspostslink" rel="prev" href="#">prev</a>
+  <!-- <?php previous_post_link('%link', 'prev'); ?> -->
+  <?php previous_post_link('%link', 'prev'); ?>
   <a class="wp-pagenavi__list" href="<?php echo get_post_type_archive_link('post'); ?>">一覧</a>
-  <a class="nextpostslink" rel="next" href="#">next</a>
-</div>
-
-<div class='wp-pagenavi l-wp-pagenavi'>
-  <a class="previouspostslink" rel="prev" href="<?php previous_post_link('« %link', 'prev', TRUE, ''); ?>">prev</a>
-  <a class="wp-pagenavi__list" href="<?php echo get_post_type_archive_link('post'); ?>">一覧</a>
-  <a class="nextpostslink" rel="next" href="<?php next_post_link('%link »', 'next', TRUE, ''); ?>">next</a>
-</div>
-
-<div class='wp-pagenavi l-wp-pagenavi'>
-  <a class="previouspostslink" rel="prev" href="<?php previous_post_link('« %link', 'prev', TRUE, ''); ?>">prev</a>
-  <a class="wp-pagenavi__list" href="<?php echo get_post_type_archive_link('blog'); ?>">ブログ一覧</a>
-  <a class="nextpostslink" rel="next" href="<?php next_post_link('%link »', 'next', TRUE, ''); ?>">next</a>
+  <?php next_post_link('%link', 'next'); ?>
 </div>
 
 
+
+<?php endwhile; ?>
+<?php endif; ?>
 
 <div class="works-detail__relative-articles relative-articles l-relative-articles">
   <div class="relative-articles__l-inner l-inner">

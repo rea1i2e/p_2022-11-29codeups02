@@ -6,7 +6,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  
+
+  <?php if (is_user_logged_in()) : ?>
+    <style type="text/css">
+      .header,
+      .header__nav {
+        top: 32px!important;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .header {
+          top: 32px!important;
+        }
+      }
+
+      @media screen and (max-width: 782px) {
+        .header {
+          top: 46px!important;
+        }
+      }
+
+      @media screen and (max-width: 600px) {
+        #wpadminbar {
+          position: fixed !important;
+        }
+      }
+    </style>
+  <?php endif; ?>
   <?php wp_head(); ?>
 </head>
 
