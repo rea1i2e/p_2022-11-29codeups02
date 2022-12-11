@@ -1,39 +1,12 @@
 <?php get_header(); ?>
 
 <div class="blog-breadcrumb breadcrumb l-breadcrumb l-breadcrumb--detail-page">
-  <div class="breadcrumb__l-inner l-inner">
-    <ol class="breadcrumb__list" itemscope itemtype="https://schema.org/BreadcrumbList">
-      <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a itemprop="item" href="/">
-          <span itemprop="name">トップ</span>
-        </a>
-        <meta itemprop="position" content="1" />
-      </li>
-      <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a itemprop="item" href="/blog/">
-          <span itemprop="name">ブログ</span>
-        </a>
-        <meta itemprop="position" content="2" />
-      </li>
-      <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a itemprop="item" href="/blog/article001/">
-          <span itemprop="name">ブログ詳細</span>
-        </a>
-        <meta itemprop="position" content="2" />
-      </li>
-    </ol>
-  </div>
-</div>
-
-<div class="blog-breadcrumb breadcrumb l-breadcrumb l-breadcrumb--detail-page">
   <div class="breadcrumb__l-inner l-inner" typeof="BreadcrumbList" vocab="https://schema.org/">
     <?php if (function_exists('bcn_display')) {
       bcn_display();
     } ?>
   </div>
 </div>
-
-
 
 
 <article class="blog-article article">
@@ -44,12 +17,16 @@
         <div class="article__heading page-heading">
           <h1 class="page-heading__title"><?php the_title(); ?></h1>
           <time class="page-heading__date" datetime="<?php echo get_the_date('Y-m-d') ?>"><?php echo get_the_date('Y/m/d') ?></time>
-          <?php
-          $terms = get_the_terms($post->ID, 'blog_category');
-          foreach ($terms as $term) {
-            echo '<span class="page-heading__category">' . $term->name . '</span>';
-          }
-          ?>
+          <?php if (is_singular('post')) { ?>
+            <span class="page-heading__category"><?php the_category(); ?></span>
+          <?php } else { ?>
+            <?php
+            $terms = get_the_terms($post->ID, 'blog_category');
+            foreach ($terms as $term) {
+              echo '<span class="page-heading__category">' . $term->name . '</span>';
+            }
+            ?>
+          <?php } ?>
         </div>
         <div class="article__image">
           <?php if (has_post_thumbnail()) { ?>
