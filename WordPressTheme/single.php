@@ -48,7 +48,13 @@
 <div class='wp-pagenavi l-wp-pagenavi'>
   <!-- <?php previous_post_link('%link', 'prev'); ?> -->
   <?php previous_post_link('%link', 'prev'); ?>
-  <a class="wp-pagenavi__list" href="<?php echo get_post_type_archive_link('post'); ?>">一覧</a>
+  <?php if (is_singular('post')) { ?>
+    <a class="wp-pagenavi__list" href="<?php echo get_post_type_archive_link('post'); ?>">一覧</a>
+    <?php } elseif (is_singular('blog')) { ?>
+      <a class="wp-pagenavi__list" href="<?php echo get_post_type_archive_link('blog'); ?>">一覧</a>
+  <?php } ?>
+
+
   <?php next_post_link('%link', 'next'); ?>
 </div>
 
