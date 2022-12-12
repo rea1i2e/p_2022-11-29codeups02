@@ -164,3 +164,24 @@ function change_set_post($query){
 	}
 }
 // add_action('pre_get_posts','change_set_post');
+
+
+add_action( 'admin_print_footer_scripts', 'select_to_radio_area' );
+  function select_to_radio_area() {
+?>
+<script type="text/javascript">
+jQuery(function($) {
+  // 投稿画面
+  $('.components-checkbox-control__input-container input[type=checkbox]').each(function() {
+    $(this).replaceWith($(this).clone().attr('type', 'radio'));
+  });
+  // 一覧画面
+  var area_checklist = $('.area-checklist input[type=checkbox]');
+  area_checklist.click(function() {
+    $(this).parents('.area-checklist').find(' input[type=checkbox]').attr('checked', false);
+    $(this).attr('checked', true);
+  });
+});
+</script>
+<?php
+}

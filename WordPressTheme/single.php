@@ -21,19 +21,19 @@
         $taxonomy = get_taxonomy($taxonomy_slug[0]);
         //タクソノミー名取得
         $taxonomy_name = $taxonomy->label;
-        echo $taxonomy_name;
-        echo $taxonomy_slug[0];
+        // echo $taxonomy_name;
+        // echo $taxonomy_slug[0];
         ?>
 
         <div class="article__heading page-heading">
           <h1 class="page-heading__title"><?php the_title(); ?></h1>
           <time class="page-heading__date" datetime="<?php echo get_the_date('Y-m-d') ?>"><?php echo get_the_date('Y/m/d') ?></time>
-            <?php
-            $terms = get_the_terms($post->ID, $taxonomy_slug[0]);
-            foreach ($terms as $term) {
-              echo '<span class="page-heading__category">' . $term->name . '</span>';
-            }
-            ?>
+          <?php
+          $terms = get_the_terms($post->ID, $taxonomy_slug[0]);
+          foreach ($terms as $term) {
+            echo '<span class="page-heading__category">' . $term->name . '</span>';
+          }
+          ?>
         </div>
         <div class="article__image">
           <?php if (has_post_thumbnail()) { ?>

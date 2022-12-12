@@ -18,29 +18,37 @@
 <div class="news__news-list news-list">
   <div class="news-list__l-inner l-inner l-inner--860">
     <?php if (have_posts()) : ?>
-      <dl class="top-news__news-items news-items">
-        <?php while (have_posts()) : the_post(); ?>
-          <div class="news-items__news-item news-item">
+      <ul class="articles__list cards">
 
-            <dt class="news-item__date">
-              <?php echo get_the_date('Y.m.d') ?>
-            </dt>
-            <dd class="news-item__category">
-              <?php
-              $terms = get_the_terms($post->ID, 'blog_category');
-              foreach ($terms as $term) {
-                echo $term->name;
-              }
-              ?>
-            </dd>
-            <dd class="news-item__title">
-              <a class="news-item__link news-item__link--yellow" href="<?php the_permalink(); ?>">
-                <?php the_title(); ?>
-              </a>
-            </dd>
-          </div>
+        <?php while (have_posts()) : the_post(); ?>
+          <li class="cards__item card">
+            <a class="card__link" href="<?php the_permalink(); ?>">
+              <div class="card__image image image--card">
+                <?php if (has_post_thumbnail()) { ?>
+                  <?php the_post_thumbnail('full'); ?>
+                <?php } else { ?>
+                  <img class="image__img" src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/no-image.png')); ?>" alt="no image">
+                <?php } ?>
+              </div>
+              <div class="card__text-wrapper">
+                <h3 class="card__title"><?php the_title(); ?></h3>
+                <p class="card__descript">説明文が入ります。説明文が入ります。説明文が入ります。</p>
+                <div class="card__category-date">
+                  <div class="card__category">
+                    <?php
+                    $terms = get_the_terms($post->ID, 'blog_category');
+                    foreach ($terms as $term) {
+                      echo $term->name;
+                    }
+                    ?>
+                  </div>
+                  <div class="card__date"><?php echo get_the_date('Y.m.d') ?></div>
+                </div>
+              </div>
+            </a>
+          </li>
         <?php endwhile; ?>
-      </dl>
+      </ul>
   </div>
 <?php endif; ?>
 </div>
