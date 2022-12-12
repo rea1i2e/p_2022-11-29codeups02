@@ -1,8 +1,25 @@
 @use "global" as *;
 
-.relative-articles__btn {
+.relative-articles__heading {
+  position: relative;
+  display: block;
+  width: 100%;
   margin-bottom: rem(80);
+  padding-left: 0.1em; // letter-spacing分調整
+  background-color: $black3;
+  border: 1px solid $white;
+  font-size: rem(20);
+  font-weight: $normal;
+  letter-spacing: 0.1em;
+  line-height: rem(48);
+  text-align: center;
+
   @include mq(md) {
     margin-bottom: rem(32);
+    padding-left: 0.125em;
+    font-size: rem(16);
+    font-weight: $medium;
+    letter-spacing: calc(2em / 16);
+    line-height: rem(58);
   }
 }

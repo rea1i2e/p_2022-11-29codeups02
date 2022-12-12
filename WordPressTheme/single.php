@@ -60,71 +60,62 @@
 
 <div class="works-detail__relative-articles relative-articles l-relative-articles">
   <div class="relative-articles__l-inner l-inner">
-    <a href="#" class="relative-articles__btn btn">関連記事</a>
-    <ul class="relative-articles__item cards">
-      <li class="cards__item cards__item--small card">
-        <a class="card__link" href="">
-          <div class="card__image image image--card">
-            <img src="/assets/images/common/card06.jpg" alt="カードのイメージ画像" class="image__img">
-          </div>
-          <div class="card__text-wrapper">
-            <h3 class="card__title">タイトルが入ります。タイトルが入ります。</h3>
-            <p class="card__descript">説明文が入ります。説明文が入ります。説明文が入ります。</p>
-            <div class="card__category-date">
-              <div class="card__category">カテゴリ</div>
-              <div class="card__date">2021.07.20</div>
-            </div>
-          </div>
-        </a>
-      </li>
-      <li class="cards__item cards__item--small card">
-        <a class="card__link" href="">
-          <div class="card__image image image--card">
-            <img src="/assets/images/common/card07.jpg" alt="カードのイメージ画像" class="image__img">
-          </div>
-          <div class="card__text-wrapper">
-            <h3 class="card__title">タイトルが入ります。タイトルが入ります。</h3>
-            <p class="card__descript">説明文が入ります。説明文が入ります。説明文が入ります。</p>
-            <div class="card__category-date">
-              <div class="card__category">カテゴリ</div>
-              <div class="card__date">2021.07.20</div>
-            </div>
-          </div>
-        </a>
-      </li>
-      <li class="cards__item cards__item--small card">
-        <a class="card__link" href="">
-          <div class="card__image image image--card">
-            <img src="/assets/images/common/card08.jpg" alt="カードのイメージ画像" class="image__img">
-          </div>
-          <div class="card__text-wrapper">
-            <h3 class="card__title">タイトルが入ります。タイトルが入ります。</h3>
-            <p class="card__descript">説明文が入ります。説明文が入ります。説明文が入ります。</p>
-            <div class="card__category-date">
-              <div class="card__category">カテゴリ</div>
-              <div class="card__date">2021.07.20</div>
-            </div>
-          </div>
-        </a>
-      </li>
-      <li class="cards__item cards__item--small card">
-        <a class="card__link" href="">
-          <div class="card__image image image--card">
-            <img src="/assets/images/common/card09.jpg" alt="カードのイメージ画像" class="image__img">
-          </div>
-          <div class="card__text-wrapper">
-            <h3 class="card__title">タイトルが入ります。タイトルが入ります。</h3>
-            <p class="card__descript">説明文が入ります。説明文が入ります。説明文が入ります。</p>
-            <div class="card__category-date">
-              <div class="card__category">カテゴリ</div>
-              <div class="card__date">2021.07.20</div>
-            </div>
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
+    <h2 class="relative-articles__heading">関連記事</h2>
 
+    <!-- できれば、表示中の投稿は除外したい -->
+    <?php
+    $current_post_id = get_the_ID();
+    $args = [
+      'post_type' => 'blog',
+      'tax_query' => [
+        [
+          'taxonomy' => 'blog_category',
+          'field' => 'slug',
+          'terms' => $term->name // 記事のカテゴリ表示の際に取得したカテゴリ名を利用
+        ],
+      ],
+      'posts_per_page' => -1,
+      "post__not_in" => [$current_post_id],
+      'orderby' => 'rand'
+    ];
+    $the_query = new WP_Query($args);
+    ?>
+    <?php if ($the_query->have_posts()) : ?>
+      <ul class="relative-articles__item cards">
+        <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+          <li class="cards__item cards__item--small card">
+            <a class="card__link" href="<?php the_permalink(); ?>">
+              <div class="card__image image image--card">
+                <?php if (has_post_thumbnail()) { ?>
+                  <?php the_post_thumbnail('full'); ?>
+                <?php } else { ?>
+                  <img class="image__img" src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/no-image.png')); ?>" alt="no image">
+                <?php } ?>
+              </div>
+              <div class="card__text-wrapper">
+                <h3 class="card__title"><?php the_title(); ?></h3>
+                <div class="card__category-date">
+                  <div class="card__category"><?php echo $term->name; ?></div>
+                  <div class="card__date"><?php echo get_the_date('Y.m.d') ?></div>
+                </div>
+              </div>
+            </a>
+
+            <?php
+            $terms = get_the_terms($post->ID, 'blog_category');
+            foreach ($terms as $term) {
+              echo $term->name;
+            }
+            ?>
+          </li>
+        <?php endwhile; ?>
+      </ul>
+    <?php else : ?>
+      <!-- 投稿がない場合の内容 -->
+      <p>関連記事はありません。</p>
+    <?php endif; ?>
+
+  </div>
 </div>
 
 
