@@ -14,19 +14,26 @@
     <?php if (have_posts()) : ?>
       <?php while (have_posts()) : the_post(); ?>
 
+        <?php
+        //タクソノミースラッグ取得(単数)
+        $taxonomy_slug = array_keys(get_the_taxonomies());
+        //タクソノミー情報取得
+        $taxonomy = get_taxonomy($taxonomy_slug[0]);
+        //タクソノミー名取得
+        $taxonomy_name = $taxonomy->label;
+        echo $taxonomy_name;
+        echo $taxonomy_slug[0];
+        ?>
+
         <div class="article__heading page-heading">
           <h1 class="page-heading__title"><?php the_title(); ?></h1>
           <time class="page-heading__date" datetime="<?php echo get_the_date('Y-m-d') ?>"><?php echo get_the_date('Y/m/d') ?></time>
-          <?php if (is_singular('post')) { ?>
-            <span class="page-heading__category"><?php the_category(); ?></span>
-          <?php } else { ?>
             <?php
-            $terms = get_the_terms($post->ID, 'blog_category');
+            $terms = get_the_terms($post->ID, $taxonomy_slug[0]);
             foreach ($terms as $term) {
               echo '<span class="page-heading__category">' . $term->name . '</span>';
             }
             ?>
-          <?php } ?>
         </div>
         <div class="article__image">
           <?php if (has_post_thumbnail()) { ?>
@@ -66,10 +73,10 @@
     <?php
     $current_post_id = get_the_ID();
     $args = [
-      'post_type' => 'blog',
+      'post_type' => $post_type,
       'tax_query' => [
         [
-          'taxonomy' => 'blog_category',
+          'taxonomy' => $taxonomy_slug[0],
           'field' => 'slug',
           'terms' => $term->name // 記事のカテゴリ表示の際に取得したカテゴリ名を利用
         ],
@@ -100,13 +107,6 @@
                 </div>
               </div>
             </a>
-
-            <?php
-            $terms = get_the_terms($post->ID, 'blog_category');
-            foreach ($terms as $term) {
-              echo $term->name;
-            }
-            ?>
           </li>
         <?php endwhile; ?>
       </ul>
