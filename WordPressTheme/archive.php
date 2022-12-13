@@ -32,7 +32,7 @@
               </div>
               <div class="card__text-wrapper">
                 <h3 class="card__title"><?php the_title(); ?></h3>
-                <p class="card__descript">説明文が入ります。説明文が入ります。説明文が入ります。</p>
+                <p class="card__descript"><?php the_excerpt(); ?></p>
                 <div class="card__category-date">
                   <div class="card__category">
                     <?php

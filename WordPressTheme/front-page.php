@@ -215,9 +215,9 @@
                 <h3 class="card__title">
                   <?php the_title(); ?>
                 </h3>
-                <div class="card__descript">
+                <p class="card__descript">
                   <?php the_excerpt(); ?>
-                </div>
+                </p>
                 <div class="card__category-date">
                   <?php
                   $terms = get_the_terms($post->ID, 'blog_category');
