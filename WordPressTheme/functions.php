@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Functions
  */
@@ -8,10 +9,11 @@
  *
  * @codex https://wpdocs.osdn.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/add_theme_support
  */
-function my_setup() {
-	add_theme_support( 'post-thumbnails' ); /* アイキャッチ */
-	add_theme_support( 'automatic-feed-links' ); /* RSSフィード */
-	add_theme_support( 'title-tag' ); /* タイトルタグ自動生成 */
+function my_setup()
+{
+	add_theme_support('post-thumbnails'); /* アイキャッチ */
+	add_theme_support('automatic-feed-links'); /* RSSフィード */
+	add_theme_support('title-tag'); /* タイトルタグ自動生成 */
 	add_theme_support(
 		'html5',
 		array( /* HTML5のタグで出力 */
@@ -23,7 +25,7 @@ function my_setup() {
 		)
 	);
 }
-add_action( 'after_setup_theme', 'my_setup' );
+add_action('after_setup_theme', 'my_setup');
 
 
 
@@ -35,15 +37,14 @@ add_action( 'after_setup_theme', 'my_setup' );
 function my_script_init()
 {
 
-	wp_enqueue_style( 'slick-theme', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css');
-	wp_enqueue_style( 'slick', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
-	wp_enqueue_style( 'swiper', 'https://unpkg.com/swiper/swiper-bundle.min.css');
-	wp_enqueue_style( 'my', get_template_directory_uri() . '/assets/css/styles.css', array(), '1.0.1', 'all' );
+	wp_enqueue_style('slick-theme', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css');
+	wp_enqueue_style('slick', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
+	wp_enqueue_style('swiper', 'https://unpkg.com/swiper/swiper-bundle.min.css');
+	wp_enqueue_style('my', get_template_directory_uri() . '/assets/css/styles.css', array(), '1.0.1', 'all');
 
-	wp_enqueue_script( 'slick', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array( 'jquery' ), '1.0.1', true );
-	wp_enqueue_script( 'swiper', 'https://unpkg.com/swiper/swiper-bundle.min.js', array( 'jquery' ), '1.0.1', true );
-	wp_enqueue_script( 'my', get_template_directory_uri() . '/assets/js/script.min.js', array( 'jquery' ), '1.0.1', true );
-
+	wp_enqueue_script('slick', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array('jquery'), '1.0.1', true);
+	wp_enqueue_script('swiper', 'https://unpkg.com/swiper/swiper-bundle.min.js', array('jquery'), '1.0.1', true);
+	wp_enqueue_script('my', get_template_directory_uri() . '/assets/js/script.min.js', array('jquery'), '1.0.1', true);
 }
 add_action('wp_enqueue_scripts', 'my_script_init');
 
@@ -95,37 +96,38 @@ add_action('wp_enqueue_scripts', 'my_script_init');
  * @param string $title 書き換え前のタイトル.
  * @return string $title 書き換え後のタイトル.
  */
-function my_archive_title( $title ) {
+function my_archive_title($title)
+{
 
-	if ( is_home() ) { /* ホームの場合 */
+	if (is_home()) { /* ホームの場合 */
 		$title = 'ブログ';
-	} elseif ( is_category() ) { /* カテゴリーアーカイブの場合 */
-		$title = '' . single_cat_title( '', false ) . '';
-	} elseif ( is_tag() ) { /* タグアーカイブの場合 */
-		$title = '' . single_tag_title( '', false ) . '';
-	} elseif ( is_post_type_archive() ) { /* 投稿タイプのアーカイブの場合 */
-		$title = '' . post_type_archive_title( '', false ) . '';
-	} elseif ( is_tax() ) { /* タームアーカイブの場合 */
-		$title = '' . single_term_title( '', false );
-	} elseif ( is_search() ) { /* 検索結果アーカイブの場合 */
-		$title = '「' . esc_html( get_query_var( 's' ) ) . '」の検索結果';
-	} elseif ( is_author() ) { /* 作者アーカイブの場合 */
+	} elseif (is_category()) { /* カテゴリーアーカイブの場合 */
+		$title = '' . single_cat_title('', false) . '';
+	} elseif (is_tag()) { /* タグアーカイブの場合 */
+		$title = '' . single_tag_title('', false) . '';
+	} elseif (is_post_type_archive()) { /* 投稿タイプのアーカイブの場合 */
+		$title = '' . post_type_archive_title('', false) . '';
+	} elseif (is_tax()) { /* タームアーカイブの場合 */
+		$title = '' . single_term_title('', false);
+	} elseif (is_search()) { /* 検索結果アーカイブの場合 */
+		$title = '「' . esc_html(get_query_var('s')) . '」の検索結果';
+	} elseif (is_author()) { /* 作者アーカイブの場合 */
 		$title = '' . get_the_author() . '';
-	} elseif ( is_date() ) { /* 日付アーカイブの場合 */
+	} elseif (is_date()) { /* 日付アーカイブの場合 */
 		$title = '';
-		if ( get_query_var( 'year' ) ) {
-			$title .= get_query_var( 'year' ) . '年';
+		if (get_query_var('year')) {
+			$title .= get_query_var('year') . '年';
 		}
-		if ( get_query_var( 'monthnum' ) ) {
-			$title .= get_query_var( 'monthnum' ) . '月';
+		if (get_query_var('monthnum')) {
+			$title .= get_query_var('monthnum') . '月';
 		}
-		if ( get_query_var( 'day' ) ) {
-			$title .= get_query_var( 'day' ) . '日';
+		if (get_query_var('day')) {
+			$title .= get_query_var('day') . '日';
 		}
 	}
 	return $title;
 };
-add_filter( 'get_the_archive_title', 'my_archive_title' );
+add_filter('get_the_archive_title', 'my_archive_title');
 
 
 /**
@@ -134,10 +136,11 @@ add_filter( 'get_the_archive_title', 'my_archive_title' );
  * @param int $length 変更前の文字数.
  * @return int $length 変更後の文字数.
  */
-function my_excerpt_length( $length ) {
+function my_excerpt_length($length)
+{
 	return 80;
 }
-add_filter( 'excerpt_length', 'my_excerpt_length', 999 );
+add_filter('excerpt_length', 'my_excerpt_length', 999);
 
 
 /**
@@ -146,29 +149,64 @@ add_filter( 'excerpt_length', 'my_excerpt_length', 999 );
  * @param string $more 変更前の省略記法.
  * @return string $more 変更後の省略記法.
  */
-function my_excerpt_more( $more ) {
+function my_excerpt_more($more)
+{
 	return '...';
-
 }
-add_filter( 'excerpt_more', 'my_excerpt_more' );
+add_filter('excerpt_more', 'my_excerpt_more');
 
 
 // メインクエリの変更
-function change_set_post($query){
-	if(is_admin() || !$query->is_main_query()){
-	 return;
+function change_set_post($query)
+{
+	if (is_admin() || !$query->is_main_query()) {
+		return;
 	}
 	// if($query->is_front_page()){
 	//  $query->set('posts_per_page','3');
 	//  return;
 	// }
-	if($query->is_post_type_archive()){
-	 $query->set('posts_per_page','9');
-	 return;
+	if ($query->is_post_type_archive()) {
+		$query->set('posts_per_page', '9');
+		return;
 	}
 }
-add_action('pre_get_posts','change_set_post');
+add_action('pre_get_posts', 'change_set_post');
 
 
 //the_excerpt()でのpタグ削除
 remove_filter('the_excerpt', 'wpautop');
+
+// カテゴリ別の投稿を出力
+function cat_post_list($show_num, $cat_id)
+{
+	global $post;
+	$args = array('posts_per_page' => $show_num, 'cat' => $cat_id);
+	$myposts = get_posts($args);
+	foreach ($myposts as $post) {
+		setup_postdata($post);
+?>
+		<li class="cards__item card">
+            <a class="card__link" href="<?php the_permalink(); ?>">
+              <div class="card__image image image--card">
+                <?php if (has_post_thumbnail()) { ?>
+                  <?php the_post_thumbnail('full'); ?>
+                <?php } else { ?>
+                  <img class="image__img" src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/no-image.png')); ?>" alt="no image">
+                <?php } ?>
+              </div>
+              <div class="card__text-wrapper">
+                <h3 class="card__title"><?php the_title(); ?></h3>
+                <p class="card__descript"><?php the_excerpt(); ?></p>
+                <div class="card__category-date">
+                  <div class="card__category"><?php echo $cat_id; ?>
+                  </div>
+                  <div class="card__date"><?php echo get_the_date('Y.m.d') ?></div>
+                </div>
+              </div>
+            </a>
+          </li>
+<?php
+	}
+	wp_reset_postdata();
+}

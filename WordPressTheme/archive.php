@@ -14,6 +14,14 @@
   </div>
 </div>
 
+<!-- カテゴリ別投稿表示　お試し -->
+
+<ul class="articles__list cards">
+  <?php cat_post_list( 3, 'wordpress' ); ?>
+</ul>
+
+
+<!-- カテゴリ別投稿表示　お試し -->
 
 <div class="news__news-list news-list">
   <div class="news-list__l-inner l-inner l-inner--860">
