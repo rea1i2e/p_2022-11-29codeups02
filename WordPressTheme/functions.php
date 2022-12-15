@@ -162,11 +162,12 @@ function change_set_post($query)
 	if (is_admin() || !$query->is_main_query()) {
 		return;
 	}
+	// 表示設定で、ホームページの表示を固定ページ（home）としているので、トップページでは、サブクエリで投稿一覧を取得
 	// if($query->is_front_page()){
 	//  $query->set('posts_per_page','3');
 	//  return;
 	// }
-	if ($query->is_post_type_archive()) {
+	if ($query->is_post_type_archive('blog')) {
 		$query->set('posts_per_page', '9');
 		return;
 	}
@@ -177,36 +178,3 @@ add_action('pre_get_posts', 'change_set_post');
 //the_excerpt()でのpタグ削除
 remove_filter('the_excerpt', 'wpautop');
 
-// カテゴリ別の投稿を出力
-function cat_post_list($show_num, $cat_id)
-{
-	global $post;
-	$args = array('posts_per_page' => $show_num, 'cat' => $cat_id);
-	$myposts = get_posts($args);
-	foreach ($myposts as $post) {
-		setup_postdata($post);
-?>
-		<li class="cards__item card">
-            <a class="card__link" href="<?php the_permalink(); ?>">
-              <div class="card__image image image--card">
-                <?php if (has_post_thumbnail()) { ?>
-                  <?php the_post_thumbnail('full'); ?>
-                <?php } else { ?>
-                  <img class="image__img" src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/no-image.png')); ?>" alt="no image">
-                <?php } ?>
-              </div>
-              <div class="card__text-wrapper">
-                <h3 class="card__title"><?php the_title(); ?></h3>
-                <p class="card__descript"><?php the_excerpt(); ?></p>
-                <div class="card__category-date">
-                  <div class="card__category"><?php echo $cat_id; ?>
-                  </div>
-                  <div class="card__date"><?php echo get_the_date('Y.m.d') ?></div>
-                </div>
-              </div>
-            </a>
-          </li>
-<?php
-	}
-	wp_reset_postdata();
-}
