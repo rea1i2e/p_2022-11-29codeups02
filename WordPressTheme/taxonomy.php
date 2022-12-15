@@ -16,16 +16,27 @@
 <div class="news__news-list news-list">
   <div class="news-list__l-inner l-inner l-inner--860">
 
+    <?php
+    $page_term = $term;
+    ?>
+
     <ul class="articles__category-list category-list l-category-list">
-      <li class="category-list__category-item is-active">all</li>
+      <li class="category-list__category-item">
+        <a href="<?php echo esc_url(home_url('/blog')); ?>">all</a>
+      </li>
       <?php
       $args = [
         'taxonomy' => 'blog_category'
       ];
       $terms = get_terms($args);
       foreach ($terms as $term) :
+          if ( $page_term == $term->slug ) {
+          $active = 'is-active';
+        } else {
+          $active = '';
+        }
       ?>
-        <li class="category-list__category-item">
+        <li class="category-list__category-item <?php echo $active; ?>">
           <a href="<?php echo get_term_link($term); ?>">
             <?php echo $term->name; ?>
           </a>

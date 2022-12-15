@@ -167,7 +167,7 @@ function change_set_post($query)
 	//  $query->set('posts_per_page','3');
 	//  return;
 	// }
-	if ($query->is_post_type_archive('blog')) {
+	if ($query->is_post_type_archive('blog') || is_tax('blog_category')) {
 		$query->set('posts_per_page', '9');
 		return;
 	}
