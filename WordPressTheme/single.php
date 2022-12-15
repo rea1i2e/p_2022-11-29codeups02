@@ -81,7 +81,7 @@
           'terms' => $term->name // 記事のカテゴリ表示の際に取得したカテゴリ名を利用
         ],
       ],
-      'posts_per_page' => -1,
+      'posts_per_page' => 4,
       "post__not_in" => [$current_post_id],
       'orderby' => 'rand'
     ];
