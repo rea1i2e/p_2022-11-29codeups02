@@ -387,6 +387,12 @@ select::-ms-expand {
 	display: block;
 }
 
+.js-tab-contents.all.is-active {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+
 .cards__item:not(:last-child) {
 	margin-bottom: 24px;
 	margin-bottom: 1.5rem;

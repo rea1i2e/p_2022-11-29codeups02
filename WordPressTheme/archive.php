@@ -18,7 +18,7 @@
 
     <!-- タブメニュー -->
     <ul class="course_list">
-      <li class="category-list__category-item is-active js-tab-button" data-id="all">all</li>
+      <li class="category-list__category-item is-active js-tab-button" data-class="all">all</li>
       <?php
       $args = [
         'taxonomy' => 'blog_category'
@@ -26,7 +26,7 @@
       $terms = get_terms($args);
       foreach ($terms as $term) :
       ?>
-        <li class="category-list__category-item  js-tab-button" data-id="<?php echo $term->slug; ?>"><?php echo $term->name; ?></li>
+        <li class="category-list__category-item  js-tab-button" data-class="<?php echo $term->slug; ?>"><?php echo $term->name; ?></li>
       <?php endforeach; ?>
     </ul>
 
@@ -38,14 +38,13 @@
       <?php
       $args = [
         'post_type' => 'blog',
-        'posts_per_page' => 3
+        'posts_per_page' => 9
       ];
       $the_query = new WP_Query($args);
       ?>
       <?php if ($the_query->have_posts()) : ?>
-        <div class="is-active js-tab-contents" id="all">
           <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-            <div class="cards__item card">
+            <li class="cards__item card is-active js-tab-contents all">
               <a class="card__link" href="<?php the_permalink() ?>">
                 <div class="card__image image image--card">
                   <?php if (has_post_thumbnail()) { ?>
@@ -72,9 +71,8 @@
                   </div>
                 </div>
               </a>
-            </div>
+            </li>
           <?php endwhile; ?>
-        </div>
         <?php wp_reset_postdata(); ?>
       <?php endif; ?>
 
@@ -101,9 +99,8 @@
         $the_query = new WP_Query($args);
         ?>
         <?php if ($the_query->have_posts()) : ?>
-          <div class=" js-tab-contents" id="<?php echo $term->slug; ?>">
             <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-              <div class="cards__item card">
+              <li class="cards__item card js-tab-contents <?php echo $term->slug; ?>">
                 <a class="card__link" href="<?php the_permalink() ?>">
                   <div class="card__image image image--card">
                     <?php if (has_post_thumbnail()) { ?>
@@ -130,11 +127,10 @@
                     </div>
                   </div>
                 </a>
-              </div>
+              </li>
             <?php endwhile; ?>
             <?php wp_reset_postdata(); ?>
           <?php endif; ?>
-          </div>
         <?php endforeach; ?>
 
     </div>
