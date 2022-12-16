@@ -61,6 +61,14 @@
                 </div>
               </div>
             </a>
+            <?php
+            $days = 2; //表示させたい日数
+            $post_entry = get_the_time('U');
+            $article = time() - ($days * 86400);
+            if ($post_entry > $article) {
+              echo '<span class="card__label-new">New</span>';
+            }
+            ?>
           </li>
         <?php endwhile; ?>
       </ul>

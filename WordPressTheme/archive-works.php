@@ -1,10 +1,10 @@
 <?php get_header(); ?>
 
-<div class="blog-page-title page-title l-page-title">
-  <div class="page-title__image page-title__image--blog">
-    <h1 class="page-title__text js-test">ブログ</h1>
+<div class="works-page-title page-title l-page-title">
+    <div class="page-title__image page-title__image--works">
+      <h1 class="page-title__text page-title__text--shadow">制作実績</h1>
+    </div>
   </div>
-</div>
 
 <div class="blog-breadcrumb breadcrumb l-breadcrumb">
   <div class="breadcrumb__l-inner l-inner" typeof="BreadcrumbList" vocab="https://schema.org/">

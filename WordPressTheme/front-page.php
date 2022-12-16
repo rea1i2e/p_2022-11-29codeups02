@@ -202,7 +202,7 @@
       ?>
       <?php if ($the_query->have_posts()) : ?>
         <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-          <li class="cards__item card card-new">
+          <li class="cards__item card">
             <a class="card__link" href="<?php the_permalink(); ?>">
               <div class="card__image image image--card">
                 <?php if (has_post_thumbnail()) { ?>
