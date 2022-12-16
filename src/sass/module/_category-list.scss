@@ -3,7 +3,7 @@
 .category-list {
   text-align: left;
   margin-left: rem(-22);
-  margin-bottom: rem(-16);
+  // margin-bottom: rem(-16);
   font-size: 0;
   @include mq(md) {
     margin-left: rem(-38);
@@ -26,7 +26,7 @@
   }
 }
 
-.category-list__category-item--acrive {
+.category-list__category-item.is-active {
   padding-left: rem(6.5);
   padding-right: rem(6.5);
   background-color: $white;

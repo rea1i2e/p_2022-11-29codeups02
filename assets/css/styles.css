@@ -379,6 +379,20 @@ select::-ms-expand {
 	position: relative;
 }
 
+.js-tab-contents {
+	display: none;
+}
+
+.js-tab-contents.is-active {
+	display: block;
+}
+
+.js-tab-contents.all.is-active {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+
 .cards__item:not(:last-child) {
 	margin-bottom: 24px;
 	margin-bottom: 1.5rem;
@@ -398,8 +412,6 @@ select::-ms-expand {
 
 .category-list {
 	font-size: 0;
-	margin-bottom: -16px;
-	margin-bottom: -1rem;
 	margin-left: -22px;
 	margin-left: -1.375rem;
 	text-align: left;
@@ -423,7 +435,7 @@ select::-ms-expand {
 	text-transform: uppercase;
 }
 
-.category-list__category-item--acrive {
+.category-list__category-item.is-active {
 	background-color: #fff;
 	color: #333;
 	padding-left: 6.5px;
@@ -1291,6 +1303,11 @@ select::-ms-expand {
 	margin-bottom: 5rem;
 }
 
+.articles__category-list {
+	margin-bottom: 24px;
+	margin-bottom: 1.5rem;
+}
+
 .blog-article {
 	margin-bottom: 80px;
 	margin-bottom: 5rem;
@@ -2100,23 +2117,26 @@ form#mail_form input[type=button]:hover {
 	margin-bottom: 3.28125rem;
 }
 
-.works-item--category01 {
+.works-item {
 	position: relative;
 }
 
-.works-item--category01::after {
+.works-item__category {
 	background-color: #111;
-	content: "カテゴリ１";
+	display: inline-block;
 	height: 40px;
 	height: 2.5rem;
 	letter-spacing: 0.125em;
 	line-height: 40px;
 	line-height: 2.5rem;
+	padding-left: 20px;
+	padding-left: 1.25rem;
+	padding-right: 20px;
+	padding-right: 1.25rem;
 	position: absolute;
 	right: calc(50% - 50vw);
 	top: 0;
-	width: 128px;
-	width: 8rem;
+	z-index: 1;
 }
 
 .works-item__image {
@@ -2150,6 +2170,7 @@ form#mail_form input[type=button]:hover {
 	font-size: 1.25rem;
 	font-weight: 500;
 	letter-spacing: 0.1em;
+	text-align: center;
 	text-indent: 0.1em;
 }
 
@@ -2264,17 +2285,11 @@ form#mail_form input[type=button]:hover {
 	text-align: center;
 }
 
-.point__description {
-	border: 1px solid #fff;
-	font-size: 16px;
-	font-size: 1rem;
-	line-height: 2.1875;
-	padding: 56px 10px 33px;
-	padding: 3.5rem 0.625rem 2.0625rem;
+.point {
 	position: relative;
 }
 
-.point__description::before {
+.point__heading {
 	background-color: #111;
 	border: 1px solid #fff;
 	border-radius: 2rem;
@@ -2295,18 +2310,17 @@ form#mail_form input[type=button]:hover {
 	position: absolute;
 	top: -23px;
 	top: -1.4375rem;
+	z-index: 1;
 }
 
-.point__description:nth-child(1)::before {
-	content: "制作のポイント";
-}
-
-.point__description:nth-child(2)::before {
-	content: "デザインのポイント";
-}
-
-.point__description:nth-child(3)::before {
-	content: "その他";
+.point__description {
+	border: 1px solid #fff;
+	font-size: 16px;
+	font-size: 1rem;
+	line-height: 2.1875;
+	padding: 56px 10px 33px;
+	padding: 3.5rem 0.625rem 2.0625rem;
+	position: relative;
 }
 
 .points__item:not(:last-child) {
@@ -2448,7 +2462,7 @@ a:hover {
 	margin-left: 2.375rem;
 }
 
-.category-list__category-item--acrive {
+.category-list__category-item.is-active {
 	padding-left: 0.5rem;
 	padding-right: 0.5rem;
 }
@@ -2884,6 +2898,10 @@ section:nth-of-type(even) .section-titles__section-subtitle {
 	margin-bottom: 6.5rem;
 }
 
+.articles__category-list {
+	margin-bottom: 1.25rem;
+}
+
 .blog-article {
 	margin-bottom: 6.5rem;
 }
@@ -3203,7 +3221,7 @@ section:nth-of-type(even) .section-titles__section-subtitle {
 	flex-direction: row;
 }
 
-.works-item--category01::after {
+.works-item__category {
 	right: 0;
 }
 

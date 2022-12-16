@@ -81,7 +81,7 @@
           </li>
           <li class="points__item point">
             <p class="point__description">
-              <?php the_field('point_design'); ?>
+              <?php the_field('point_coding'); ?>
             </p>
             </p>
           </li>

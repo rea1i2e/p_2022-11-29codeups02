@@ -1,19 +1,21 @@
 @use "global" as *;
 
-.works-item--category01 {
+.works-item {
   position: relative;
 }
 
-.works-item--category01::after {
-  background-color: $black1;
-  content: "カテゴリ１";
+.works-item__category {
   position: absolute;
   top:0;
   right: calc(50% - 50vw);
+  z-index: 1;
+  display: inline-block;
   height: rem(40);
+  padding-right: rem(20);
+  padding-left: rem(20);
+  background-color: $black1;
   line-height: rem(40);
   letter-spacing: calc( 2em / 16);
-  width: rem(128);
   @include mq("md") {
     right: 0;
   }
@@ -59,5 +61,6 @@
   font-size: rem(20);
   font-weight: $medium;
   letter-spacing: calc( 2em / 20);
+  text-align: center;
   text-indent: calc( 2em / 20);
 }

@@ -19,6 +19,16 @@
   }
 }
 
+.js-tab-contents {
+  display: none;
+}
+.js-tab-contents.is-active {
+  display: block;
+}
+.js-tab-contents.all.is-active {
+  display: flex;
+}
+
 .cards__item--small {
   @include mq("md") {
     width: calc( 100% * 251 / 1100);

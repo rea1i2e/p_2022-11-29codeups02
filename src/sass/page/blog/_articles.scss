@@ -6,3 +6,10 @@
     margin-bottom: rem(104);
   }
 }
+
+.articles__category-list {
+  margin-bottom: rem(24);
+  @include mq(md) {
+    margin-bottom: rem(20);
+  }
+}

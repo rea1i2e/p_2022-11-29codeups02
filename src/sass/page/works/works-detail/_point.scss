@@ -1,22 +1,14 @@
 @use "global" as *;
 
-.point__description {
+.point {
   position: relative;
-  border: 1px solid $white;
-  padding: rem(56) rem(10) rem(33);
-  font-size: rem(16);
-  line-height: calc( 35 / 16 );
-  @include mq(md) {
-    padding: rem(44) rem(23) rem(32);
-
-  }
-
 }
 
-.point__description::before {
+.point__heading {
   position: absolute;
   top: rem(-23);
   left: rem(24);
+  z-index: 1;
   display: inline-block;
   height: rem(46);
   padding-left: rem(24);
@@ -29,14 +21,13 @@
   font-weight: $normal;
 }
 
-.point__description:nth-child(1)::before {
-  content: "制作のポイント";
-}
-
-.point__description:nth-child(2)::before {
-  content: "デザインのポイント";
-}
-
-.point__description:nth-child(3)::before {
-  content: "その他";
+.point__description {
+  position: relative;
+  border: 1px solid $white;
+  padding: rem(56) rem(10) rem(33);
+  font-size: rem(16);
+  line-height: calc(35 / 16);
+  @include mq(md) {
+    padding: rem(44) rem(23) rem(32);
+  }
 }
