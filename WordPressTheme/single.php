@@ -69,7 +69,6 @@
   <div class="relative-articles__l-inner l-inner">
     <h2 class="relative-articles__heading">関連記事</h2>
 
-    <!-- できれば、表示中の投稿は除外したい -->
     <?php
     $current_post_id = get_the_ID();
     $args = [
@@ -82,7 +81,7 @@
         ],
       ],
       'posts_per_page' => 4,
-      "post__not_in" => [$current_post_id],
+      "post__not_in" => [$current_post_id], //表示中の投稿は除外
       'orderby' => 'rand'
     ];
     $the_query = new WP_Query($args);

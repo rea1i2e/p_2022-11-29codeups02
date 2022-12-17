@@ -6,7 +6,7 @@
   </div>
 </div>
 
-<div class="blog-breadcrumb breadcrumb l-breadcrumb">
+<div class="works-breadcrumb breadcrumb l-breadcrumb">
   <div class="breadcrumb__l-inner l-inner" typeof="BreadcrumbList" vocab="https://schema.org/">
     <?php if (function_exists('bcn_display')) {
       bcn_display();
@@ -18,7 +18,9 @@
   <div class="news-list__l-inner l-inner l-inner--860">
 
     <ul class="articles__category-list category-list l-category-list">
-      <li class="category-list__category-item is-active">all</li>
+      <li class="category-list__category-item is-active">
+        <a href="<?php echo esc_url(home_url('/works')); ?>">all</a>
+      </li>
       <?php
       $args = [
         'taxonomy' => 'works_category'
@@ -54,7 +56,7 @@
                   <img class="image__img" src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/no-image.png')); ?>" alt="no image">
                 <?php } ?>
               </div>
-                <h2 class="works-item__title"><?php the_title(); ?></h2>
+              <h2 class="works-item__title"><?php the_title(); ?></h2>
             </a>
           </li>
         <?php endwhile; ?>
