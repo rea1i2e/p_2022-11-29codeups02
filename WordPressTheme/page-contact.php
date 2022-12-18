@@ -18,62 +18,49 @@
   <?php while (have_posts()) : the_post(); ?>
     <main class="contact-mail-form mail-form">
       <div class="mail-form__l-inner l-inner l-inner--696">
-        
+
         <?php the_content() ?>
 
-        <!-- <form action="" method="post" id="mail_form" class="mail-form__form">
-
+        <!-- <form action="">
           <dl class="mail-form__dl">
-            <dt class="mail-form__dt">
-              ※会社名・団体名
-            </dt>
+            <dt class="mail-form__dt">※会社名・団体名</dt>
             <dd class="mail-form__dd required">
-              <input type="text" name="company" value="" placeholder="テキストがはいります" />
+              [text* company]
             </dd>
           </dl>
 
           <dl class="mail-form__dl">
-            <dt class="mail-form__dt">
-              ※部署名
-            </dt>
+            <dt class="mail-form__dt">※部署名</dt>
             <dd class="mail-form__dd required">
-              <input type="text" name="department" value="" placeholder="テキストがはいります" />
+              [text* text-943 "テキストがはいります"]
             </dd>
           </dl>
 
           <dl class="mail-form__dl">
-            <dt class="mail-form__dt">
-              ※お名前
-            </dt>
+            <dt class="mail-form__dt">※お名前</dt>
             <dd class="mail-form__dd required">
-              <input type="text" name="name_1" value="" placeholder="テキストがはいります" />
+              [text* name_1 "テキストがはいります"]
             </dd>
           </dl>
 
           <dl class="mail-form__dl">
-            <dt class="mail-form__dt">
-              ※ふりがな
-            </dt>
+            <dt class="mail-form__dt">※ふりがな</dt>
             <dd class="mail-form__dd required">
-              <input type="text" name="read_1" value="" placeholder="テキストがはいります" />
+              [text* read_1 "テキストがはいります"]
             </dd>
           </dl>
 
           <dl class="mail-form__dl">
-            <dt class="mail-form__dt">
-              ※メールアドレス
-            </dt>
+            <dt class="mail-form__dt">※メールアドレス</dt>
             <dd class="mail-form__dd required">
-              <input type="email" name="mail_address" value="" placeholder="テキストがはいります" />
+              [email* mail_address "テキストがはいります"]
             </dd>
           </dl>
 
           <dl class="mail-form__dl">
-            <dt class="mail-form__dt">
-              ※お問い合わせ内容
-            </dt>
+            <dt class="mail-form__dt">※お問い合わせ内容</dt>
             <dd class="mail-form__dd required">
-              <textarea name="contents" placeholder="テキストがはいります"></textarea>
+              [textarea* contents "テキストがはいります"]
             </dd>
           </dl>
 
@@ -81,11 +68,7 @@
           <p id="form_submit" class="mail-form__submit">
             <input type="submit" id="form_submit_button" value="送信" />
           </p>
-
-
-
         </form> -->
-
       </div>
     </main>
   <?php endwhile; ?>

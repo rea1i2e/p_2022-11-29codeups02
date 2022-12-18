@@ -1665,25 +1665,37 @@ form input[type=submit] {
 	padding-left: 0.125em;
 }
 
-form input[type=submit]:hover {
-	background: #449d44;
-	border: 1px solid #398439;
-	cursor: pointer;
+form.wpcf7-form {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
 }
 
-/* -- responsive ----------------------------------------------------------------------------------------------------------------------- */
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.unaccepted .wpcf7-response-output,
+.wpcf7 form.payment-required .wpcf7-response-output {
+	border: none;
+	color: #ff5757;
+	-webkit-box-ordinal-group: 0;
+	-ms-flex-order: -1;
+	order: -1;
+	text-align: center;
+}
 
-/* 1000pixel start */
+form input[type=text].wpcf7-not-valid,
+form input[type=email].wpcf7-not-valid,
+form textarea.wpcf7-not-valid,
+form input[type=tel].wpcf7-not-valid {
+	background-color: #ffdcdc;
+}
 
-/* -- form, dl, dt, dd -------------------------------------------------------------------------------- */
-
-/* -- span.required, span.optional -------------------------------------------------------------------------------- */
-
-/* -- input design -------------------------------------------------------------------------------- */
-
-/* -- button -------------------------------------------------------------------------------- */
-
-/* 1000pixel end */
+.wpcf7-not-valid-tip {
+	display: none;
+}
 
 .content-description {
 	margin-bottom: 120px;
@@ -2963,6 +2975,12 @@ section:nth-of-type(even) .section-titles__section-subtitle {
 	-webkit-transform: translateX();
 	transform: translateX();
 	width: 51.724137931%;
+}
+
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.unaccepted .wpcf7-response-output,
+.wpcf7 form.payment-required .wpcf7-response-output {
+	padding-left: 9.875rem;
 }
 
 .content-description {
