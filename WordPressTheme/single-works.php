@@ -100,7 +100,19 @@ $taxonomy_name = $taxonomy->label;
       <?php endwhile; ?>
     <?php endif; ?>
 
-    <div class="works-detail__relative-articles relative-articles l-relative-articles">
+    <div class='wp-pagenavi l-wp-pagenavi'>
+      <!-- <?php previous_post_link('%link', 'prev'); ?> -->
+      <?php previous_post_link('%link', 'prev'); ?>
+      <?php $post_type = get_post()->post_type; ?>
+      <a class="wp-pagenavi__list" href="<?php echo get_post_type_archive_link($post_type); ?>"><?php echo $post_type; ?>一覧</a>
+      <?php next_post_link('%link', 'next'); ?>
+    </div>
+
+
+  </div>
+</main>
+
+<div class="works-detail__relative-articles relative-articles l-relative-articles">
       <div class="relative-articles__l-inner l-inner">
         <h2 class="relative-articles__heading">関連記事</h2>
 
@@ -154,17 +166,5 @@ $taxonomy_name = $taxonomy->label;
       </div>
     </div>
 
-
-    <div class='wp-pagenavi l-wp-pagenavi'>
-      <!-- <?php previous_post_link('%link', 'prev'); ?> -->
-      <?php previous_post_link('%link', 'prev'); ?>
-      <?php $post_type = get_post()->post_type; ?>
-      <a class="wp-pagenavi__list" href="<?php echo get_post_type_archive_link($post_type); ?>"><?php echo $post_type; ?>一覧</a>
-      <?php next_post_link('%link', 'next'); ?>
-    </div>
-
-
-  </div>
-</main>
 
 <?php get_footer(); ?>
