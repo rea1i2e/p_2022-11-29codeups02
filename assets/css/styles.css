@@ -1468,7 +1468,8 @@ select::-ms-expand {
 }
 
 .mail-form__dd input {
-	height: 100%;
+	padding: 9.5px 9px;
+	padding: 0.59375rem 0.5625rem;
 	padding-left: 9px;
 	padding-left: 0.5625rem;
 	padding-right: 9px;
@@ -1486,7 +1487,6 @@ select::-ms-expand {
 }
 
 .mail-form__submit {
-	background-color: cadetblue;
 	width: 100%;
 }
 
@@ -1494,15 +1494,15 @@ select::-ms-expand {
 	width: 100%;
 }
 
-/* -- form#mail_form, dl, dt, dd -------------------------------------------------------------------------------- */
+/* -- form, dl, dt, dd -------------------------------------------------------------------------------- */
 
-/* form#mail_form * {
+/* form * {
 	margin: 0;
 	padding: 0;
 	box-sizing: content-box;
 } */
 
-/* form#mail_form {
+/* form {
 	width: 1000px;
 	margin: 50px auto;
 	background: #ffffff;
@@ -1512,7 +1512,7 @@ select::-ms-expand {
 	line-height: 1.8;
 } */
 
-/* form#mail_form dl {
+/* form dl {
 	width: 90%;
 	margin: 0 auto;
 	border-bottom: 1px solid #cccccc;
@@ -1520,26 +1520,26 @@ select::-ms-expand {
 
 /* -- span.required, span.optional -------------------------------------------------------------------------------- */
 
-form#mail_form dl dt span.required,
-form#mail_form dl dt span.optional {
+form dl dt span.required,
+form dl dt span.optional {
 	display: inline-block;
 }
 
-form#mail_form dl dt span.required {
+form dl dt span.required {
 	background: #d9534f;
 	border: 1px solid #d43f3a;
 }
 
-form#mail_form dl dt span.optional {
+form dl dt span.optional {
 	background: #337ab7;
 	border: 1px solid #2e6da4;
 }
 
 /* -- error message -------------------------------------------------------------------------------- */
 
-form#mail_form dl dd span.error_blank,
-form#mail_form dl dd span.error_format,
-form#mail_form dl dd span.error_match {
+form dl dd span.error_blank,
+form dl dd span.error_format,
+form dl dd span.error_match {
 	color: #FF5757;
 	display: block;
 }
@@ -1577,34 +1577,34 @@ span.loading {
 
 /* -- input, select, textarea -------------------------------------------------------------------------------- */
 
-form#mail_form input[type=text],
-form#mail_form input[type=email],
-form#mail_form input[type=tel] {
+form input[type=text],
+form input[type=email],
+form input[type=tel] {
 	-webkit-appearance: none;
 	background: #fafafa;
 	border: 1px solid #cccccc;
 }
 
-form#mail_form input[type=text]:focus,
-form#mail_form input[type=email]:focus,
-form#mail_form input[type=tel]:focus,
-form#mail_form textarea:focus {
+form input[type=text]:focus,
+form input[type=email]:focus,
+form input[type=tel]:focus,
+form textarea:focus {
 	background: #ffffff;
 	border: 1px solid #55ccff;
 	-webkit-box-shadow: 0px 0px 5px #55ccff;
 	box-shadow: 0px 0px 5px #55ccff;
 }
 
-form#mail_form ul li input[type=radio],
-form#mail_form ul li input[type=checkbox] {
+form ul li input[type=radio],
+form ul li input[type=checkbox] {
 	margin: 0 10px 0 0;
 }
 
-form#mail_form select {
+form select {
 	border: 1px solid #cccccc;
 }
 
-form#mail_form textarea {
+form textarea {
 	-webkit-appearance: none;
 	background: #fafafa;
 	border: 1px solid #cccccc;
@@ -1617,19 +1617,19 @@ form#mail_form textarea {
 
 /* -- ul, li -------------------------------------------------------------------------------- */
 
-form#mail_form ul li label {
+form ul li label {
 	background: #f0f0f0;
 	display: block;
 }
 
-form#mail_form ul li label:hover {
+form ul li label:hover {
 	background: #e0e0e0;
 	cursor: pointer;
 }
 
 /* -- input design -------------------------------------------------------------------------------- */
 
-form#mail_form input[name=postal] + a {
+form input[name=postal] + a {
 	background: #5bc0de;
 	border: 1px solid #46b8da;
 	border-radius: 3px;
@@ -1641,7 +1641,7 @@ form#mail_form input[name=postal] + a {
 	text-decoration: none;
 }
 
-form#mail_form input[name=postal] + a:hover {
+form input[name=postal] + a:hover {
 	background: #31b0d5;
 	border: 1px solid #269abc;
 	cursor: pointer;
@@ -1649,7 +1649,7 @@ form#mail_form input[name=postal] + a:hover {
 
 /* -- button -------------------------------------------------------------------------------- */
 
-form#mail_form input[type=button] {
+form input[type=submit] {
 	-webkit-appearance: none;
 	background: #fff;
 	color: #000;
@@ -1665,25 +1665,45 @@ form#mail_form input[type=button] {
 	padding-left: 0.125em;
 }
 
-form#mail_form input[type=button]:hover {
-	background: #449d44;
-	border: 1px solid #398439;
-	cursor: pointer;
+form.wpcf7-form {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
 }
 
-/* -- responsive ----------------------------------------------------------------------------------------------------------------------- */
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.unaccepted .wpcf7-response-output,
+.wpcf7 form.payment-required .wpcf7-response-output {
+	border: none;
+	color: #ff5757;
+	-webkit-box-ordinal-group: 0;
+	-ms-flex-order: -1;
+	order: -1;
+	text-align: center;
+}
 
-/* 1000pixel start */
+.wpcf7 form.sent .wpcf7-response-output {
+	border: none;
+	-webkit-box-ordinal-group: 0;
+	-ms-flex-order: -1;
+	order: -1;
+	text-align: center;
+}
 
-/* -- form#mail_form, dl, dt, dd -------------------------------------------------------------------------------- */
+form input[type=text].wpcf7-not-valid,
+form input[type=email].wpcf7-not-valid,
+form textarea.wpcf7-not-valid,
+form input[type=tel].wpcf7-not-valid {
+	background-color: #ffdcdc;
+}
 
-/* -- span.required, span.optional -------------------------------------------------------------------------------- */
-
-/* -- input design -------------------------------------------------------------------------------- */
-
-/* -- button -------------------------------------------------------------------------------- */
-
-/* 1000pixel end */
+.wpcf7-not-valid-tip {
+	display: none;
+}
 
 .content-description {
 	margin-bottom: 120px;
@@ -2963,6 +2983,16 @@ section:nth-of-type(even) .section-titles__section-subtitle {
 	-webkit-transform: translateX();
 	transform: translateX();
 	width: 51.724137931%;
+}
+
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.unaccepted .wpcf7-response-output,
+.wpcf7 form.payment-required .wpcf7-response-output {
+	padding-left: 9.875rem;
+}
+
+.wpcf7 form.sent .wpcf7-response-output {
+	padding-left: 9.875rem;
 }
 
 .content-description {

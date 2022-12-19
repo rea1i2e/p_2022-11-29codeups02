@@ -13,7 +13,7 @@
 	margin-bottom: rem(32);
 	font-size: rem(14);
 	font-weight: $regular;
-	letter-spacing: calc(0.7em / 14 );
+	letter-spacing: calc(0.7em / 14);
 	@include mq(md) {
 		display: flex;
 		justify-content: space-between;
@@ -44,7 +44,7 @@
 	padding-bottom: rem(9.5);
 	@include mq(md) {
 		height: 100%;
-		width: 100% * calc(134 / strip-unit($inner-696) );
+		width: 100% * calc(134 / strip-unit($inner-696));
 	}
 }
 
@@ -52,8 +52,8 @@
 	width: 100%;
 	@include mq(md) {
 		height: 100%;
-		width: 100% * calc(520 / strip-unit($inner-696) );
-		margin-left: 100% * calc(24 / strip-unit($inner-696) );
+		width: 100% * calc(520 / strip-unit($inner-696));
+		margin-left: 100% * calc(24 / strip-unit($inner-696));
 	}
 }
 
@@ -74,8 +74,8 @@
 
 .mail-form__dd input {
 	width: 100%;
-	height: 100%;
-	// padding: rem(9.5) rem(9);
+	// height: 100%;
+	padding: rem(9.5) rem(9);
 	padding-right: rem(9);
 	padding-left: rem(9);
 }
@@ -89,28 +89,27 @@
 
 .mail-form__submit {
 	width: 100%;
-	background-color: cadetblue;
+	// background-color: cadetblue;
 	@include mq(md) {
-		width: 100% * calc(360 / strip-unit($inner-696) );
+		width: 100% * calc(360 / strip-unit($inner-696));
 		transform: translateX();
-		margin-right: calc(( 50% * (520 / strip-unit($inner-696) )) - ( 50% * (360 / strip-unit($inner-696) ) ) );
+		margin-right: calc((50% * (520 / strip-unit($inner-696))) - (50% * (360 / strip-unit($inner-696))));
 		margin-left: auto;
-
 	}
 }
 
 .mail-form__submit input {
 	width: 100%;
 }
-/* -- form#mail_form, dl, dt, dd -------------------------------------------------------------------------------- */
+/* -- form, dl, dt, dd -------------------------------------------------------------------------------- */
 
-/* form#mail_form * {
+/* form * {
 	margin: 0;
 	padding: 0;
 	box-sizing: content-box;
 } */
 
-/* form#mail_form {
+/* form {
 	width: 1000px;
 	margin: 50px auto;
 	background: #ffffff;
@@ -120,14 +119,14 @@
 	line-height: 1.8;
 } */
 
-/* form#mail_form dl {
+/* form dl {
 	width: 90%;
 	margin: 0 auto;
 	border-bottom: 1px solid #cccccc;
 } */
 
-// form#mail_form dl:after,
-// form#mail_form dl dt:after {
+// form dl:after,
+// form dl dt:after {
 // 	content: ".";
 // 	display: block;
 // 	height: 0;
@@ -135,32 +134,29 @@
 // 	visibility: hidden;
 // }
 
-// form#mail_form dl dt {
-	// width: 30%;
-	// float: left;
-	// padding: 35px 0 25px;
-	// text-align: right;
+// form dl dt {
+// width: 30%;
+// float: left;
+// padding: 35px 0 25px;
+// text-align: right;
 // }
 
-// form#mail_form dl dd {
-	// width: 65%;
-	// float: right;
-	// padding: 30px 0 25px 5%;
+// form dl dd {
+// width: 65%;
+// float: right;
+// padding: 30px 0 25px 5%;
 // }
 
-// form#mail_form dl dt i {
+// form dl dt i {
 // 	float: left;
 // 	position: relative;
 // 	top: -2px;
 // }
 
-
-
-
 /* -- span.required, span.optional -------------------------------------------------------------------------------- */
 
-form#mail_form dl dt span.required,
-form#mail_form dl dt span.optional {
+form dl dt span.required,
+form dl dt span.optional {
 	display: inline-block;
 	// font-size: 85%;
 	// color: $white;
@@ -168,38 +164,32 @@ form#mail_form dl dt span.optional {
 	// border-radius: 3px;
 }
 
-form#mail_form dl dt span.required {
+form dl dt span.required {
 	background: #d9534f;
 	border: 1px solid #d43f3a;
 }
 
-form#mail_form dl dt span.optional {
+form dl dt span.optional {
 	background: #337ab7;
 	border: 1px solid #2e6da4;
 }
 
-
-
-
 /* -- error message -------------------------------------------------------------------------------- */
 
-form#mail_form dl dd span.error_blank,
-form#mail_form dl dd span.error_format,
-form#mail_form dl dd span.error_match {
+form dl dd span.error_blank,
+form dl dd span.error_format,
+form dl dd span.error_match {
 	display: block;
 	color: $warning-color1;
 	// margin-top: 5px;
 }
-
-
-
 
 /* -- loading -------------------------------------------------------------------------------- */
 
 div.loading-layer {
 	width: 100vw;
 	height: 100vh;
-	background: rgba( 0, 0, 0, 0.7 );
+	background: rgba(0, 0, 0, 0.7);
 	position: fixed;
 	left: 0px;
 	top: 0px;
@@ -210,15 +200,15 @@ span.loading {
 	width: 50px;
 	height: 50px;
 	border-radius: 50%;
-	border-top: 5px solid rgba( 255, 255, 255, 0.2 );
-	border-right: 5px solid rgba( 255, 255, 255, 0.2 );
-	border-bottom: 5px solid rgba( 255, 255, 255, 0.2 );
+	border-top: 5px solid rgba(255, 255, 255, 0.2);
+	border-right: 5px solid rgba(255, 255, 255, 0.2);
+	border-bottom: 5px solid rgba(255, 255, 255, 0.2);
 	border-left: 5px solid #ffffff;
-	-webkit-transform: translateZ( 0 );
-	-ms-transform: translateZ( 0 );
-	transform: translateZ( 0 );
-	-webkit-animation: load-circle 1.0s linear infinite;
-	animation: load-circle 1.0s linear infinite;
+	-webkit-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-animation: load-circle 1s linear infinite;
+	animation: load-circle 1s linear infinite;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -228,34 +218,31 @@ span.loading {
 
 @-webkit-keyframes load-circle {
 	0% {
-		-webkit-transform: rotate( 0deg );
-		transform: rotate( 0deg );
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
 	}
 	100% {
-		-webkit-transform: rotate( 360deg );
-		transform: rotate( 360deg );
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
 	}
 }
 
 @keyframes load-circle {
 	0% {
-		-webkit-transform: rotate( 0deg );
-		transform: rotate( 0deg );
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
 	}
 	100% {
-		-webkit-transform: rotate( 360deg );
-		transform: rotate( 360deg );
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
 	}
 }
 
-
-
-
 /* -- input, select, textarea -------------------------------------------------------------------------------- */
 
-form#mail_form input[type="text"],
-form#mail_form input[type="email"],
-form#mail_form input[type="tel"] {
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"] {
 	// width: calc( 100% - 4% - 2px );
 	// padding: 7px 2%;
 	border: 1px solid #cccccc;
@@ -267,21 +254,21 @@ form#mail_form input[type="tel"] {
 	// line-height: normal;
 }
 
-form#mail_form input[type="text"]:focus,
-form#mail_form input[type="email"]:focus,
-form#mail_form input[type="tel"]:focus,
-form#mail_form textarea:focus {
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="tel"]:focus,
+form textarea:focus {
 	box-shadow: 0px 0px 5px #55ccff;
 	border: 1px solid #55ccff;
 	background: #ffffff;
 }
 
-form#mail_form ul li input[type="radio"],
-form#mail_form ul li input[type="checkbox"] {
+form ul li input[type="radio"],
+form ul li input[type="checkbox"] {
 	margin: 0 10px 0 0;
 }
 
-form#mail_form select {
+form select {
 	// padding: 7px 2%;
 	border: 1px solid #cccccc;
 	// font-size: 16px;
@@ -289,7 +276,7 @@ form#mail_form select {
 	// line-height: normal;
 }
 
-form#mail_form textarea {
+form textarea {
 	display: block;
 	// width: calc( 100% - 4% - 2px );
 	// width: 100% * ( 540 / strip-unit($inner-696) );
@@ -303,16 +290,13 @@ form#mail_form textarea {
 	line-height: normal;
 }
 
-
-
-
 /* -- ul, li -------------------------------------------------------------------------------- */
 
-// form#mail_form ul {
+// form ul {
 // 	list-style-type: none;
 // }
 
-form#mail_form ul li label {
+form ul li label {
 	display: block;
 	// margin-top: 10px;
 	// padding: 7px 2%;
@@ -320,42 +304,39 @@ form#mail_form ul li label {
 	background: #f0f0f0;
 }
 
-// form#mail_form ul li:first-child label {
+// form ul li:first-child label {
 // 	margin-top: 0px;
 // }
 
-form#mail_form ul li label:hover {
+form ul li label:hover {
 	cursor: pointer;
 	background: #e0e0e0;
 }
 
-
-
-
 /* -- input design -------------------------------------------------------------------------------- */
 
-// form#mail_form input[name="company"] {
+// form input[name="company"] {
 // 	// width: 70%;
 // 	width: 100% * ( 360 / strip-unit($inner-696) );
 
 // }
 
-// form#mail_form input[name="name_1"],
-// form#mail_form input[name="name_2"],
-// form#mail_form input[name="read_1"],
-// form#mail_form input[name="read_2"],
-// form#mail_form input[name="postal"],
-// form#mail_form input[name="phone"],
-// form#mail_form input[name="schedule"] {
+// form input[name="name_1"],
+// form input[name="name_2"],
+// form input[name="read_1"],
+// form input[name="read_2"],
+// form input[name="postal"],
+// form input[name="phone"],
+// form input[name="schedule"] {
 // 	width: 30%;
 // }
 
-// form#mail_form input[name="mail_address"],
-// form#mail_form input[name="mail_address_confirm"] {
+// form input[name="mail_address"],
+// form input[name="mail_address_confirm"] {
 // 	width: 80%;
 // }
 
-form#mail_form input[name="postal"] + a {
+form input[name="postal"] + a {
 	display: inline-block;
 	padding: 7px 20px;
 	border: 1px solid #46b8da;
@@ -367,130 +348,77 @@ form#mail_form input[name="postal"] + a {
 	text-decoration: none;
 }
 
-form#mail_form input[name="postal"] + a:hover {
+form input[name="postal"] + a:hover {
 	cursor: pointer;
 	background: #31b0d5;
 	border: 1px solid #269abc;
 }
 
-
-
-
 /* -- button -------------------------------------------------------------------------------- */
 
-// form#mail_form p#form_submit {
+// form p#form_submit {
 // 	width: 90%;
 // 	margin: 0 auto;
 // 	padding: 30px 0;
 // }
 
-form#mail_form input[type="button"] {
+form input[type="submit"] {
 	// padding: 7px 20px;
 	// border: 1px solid #4cae4c;
 	// border-radius: 3px;
 	// width: 100% * ( 360 / strip-unit($inner-696) );
 	height: rem(60);
-	padding-left: calc(2em / 16 );
+	padding-left: calc(2em / 16);
 	background: $white;
 	font-size: rem(16);
 	color: $black0;
 	font-size: rem(16);
-	letter-spacing: calc(2em / 16 );
+	letter-spacing: calc(2em / 16);
 	line-height: rem(60);
 	-webkit-appearance: none;
 }
 
-form#mail_form input[type="button"]:hover {
-	cursor: pointer;
-	background: #449d44;
-	border: 1px solid #398439;
+// form input[type="submit"]:hover {
+// 	cursor: pointer;
+// 	background: #449d44;
+// 	border: 1px solid #398439;
+// }
+
+// エラーメッセージ
+
+form.wpcf7-form {
+	display: flex;
+	flex-direction: column;
 }
 
-// form#mail_form input[type="button"] {
-// 	margin-left: 35%;
-// }
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.unaccepted .wpcf7-response-output,
+.wpcf7 form.payment-required .wpcf7-response-output {
+	border: none;
+	color: #ff5757;
+	text-align: center;
+	order: -1;
+	@include mq() {
+		padding-left: rem(158);
+	}
+}
+.wpcf7 form.sent .wpcf7-response-output {
+	border: none;
+	text-align: center;
+	order: -1;
+	@include mq() {
+		padding-left: rem(158);
+	}
+}
 
 
+form input[type="text"].wpcf7-not-valid,
+form input[type="email"].wpcf7-not-valid,
+form textarea.wpcf7-not-valid,
+form input[type="tel"].wpcf7-not-valid {
+	background-color: #ffdcdc;
+}
 
-
-
-
-
-
-/* -- responsive ----------------------------------------------------------------------------------------------------------------------- */
-
-/* 1000pixel start */
-// @media screen and ( max-width: 1000px ) {
-
-
-/* -- form#mail_form, dl, dt, dd -------------------------------------------------------------------------------- */
-
-// form#mail_form {
-// 	width: 95%;
-// 	font-size: 100%;
-// }
-
-// form#mail_form dl dt {
-	// width: auto;
-	// float: none;
-	// padding: 25px 0 10px;
-	// text-align: left;
-	// font-weight: bold;
-// }
-
-// form#mail_form dl dd {
-	// width: auto;
-	// float: none;
-	// padding: 0px 0 20px 0px;
-// }
-
-// form#mail_form dl dt i {
-// 	float: none;
-// 	position: static;
-// 	font-weight: normal;
-// }
-
-
-
-
-/* -- span.required, span.optional -------------------------------------------------------------------------------- */
-
-// form#mail_form dl dt span.required,
-// form#mail_form dl dt span.optional {
-// 	margin: 0 15px 0 0;
-// }
-
-
-
-
-/* -- input design -------------------------------------------------------------------------------- */
-
-// form#mail_form input[name="phone"],
-// form#mail_form input[name="schedule"] {
-// 	width: 60%;
-// }
-
-
-
-
-/* -- button -------------------------------------------------------------------------------- */
-
-// form#mail_form p#form_submit {
-// 	padding: 25px 0;
-// }
-
-// form#mail_form input[type="button"] {
-// 	margin-left: 0;
-// }
-
-
-// }
-/* 1000pixel end */
-
-
-
-
-
-
-
-
+.wpcf7-not-valid-tip {
+	display: none;
+}
