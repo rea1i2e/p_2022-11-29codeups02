@@ -1675,7 +1675,7 @@ form.wpcf7-form {
 	flex-direction: column;
 }
 
-.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.sent .wpcf7-response-output .wpcf7 form.invalid .wpcf7-response-output,
 .wpcf7 form.unaccepted .wpcf7-response-output,
 .wpcf7 form.payment-required .wpcf7-response-output {
 	border: none;
@@ -2977,7 +2977,7 @@ section:nth-of-type(even) .section-titles__section-subtitle {
 	width: 51.724137931%;
 }
 
-.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.sent .wpcf7-response-output .wpcf7 form.invalid .wpcf7-response-output,
 .wpcf7 form.unaccepted .wpcf7-response-output,
 .wpcf7 form.payment-required .wpcf7-response-output {
 	padding-left: 9.875rem;

@@ -25,42 +25,42 @@
           <dl class="mail-form__dl">
             <dt class="mail-form__dt">※会社名・団体名</dt>
             <dd class="mail-form__dd required">
-              [text* company]
+              [text* company placeholder "テキストがはいります"]
             </dd>
           </dl>
 
           <dl class="mail-form__dl">
             <dt class="mail-form__dt">※部署名</dt>
             <dd class="mail-form__dd required">
-              [text* text-943 "テキストがはいります"]
+              [text* department placeholder "テキストがはいります"]
             </dd>
           </dl>
 
           <dl class="mail-form__dl">
             <dt class="mail-form__dt">※お名前</dt>
             <dd class="mail-form__dd required">
-              [text* name_1 "テキストがはいります"]
+              [text* your-name placeholder "テキストがはいります"]
             </dd>
           </dl>
 
           <dl class="mail-form__dl">
             <dt class="mail-form__dt">※ふりがな</dt>
             <dd class="mail-form__dd required">
-              [text* read_1 "テキストがはいります"]
+              [text* name_ruby placeholder "テキストがはいります"]
             </dd>
           </dl>
 
           <dl class="mail-form__dl">
             <dt class="mail-form__dt">※メールアドレス</dt>
             <dd class="mail-form__dd required">
-              [email* mail_address "テキストがはいります"]
+              [email* e-mail placeholder "テキストがはいります"]
             </dd>
           </dl>
 
           <dl class="mail-form__dl">
             <dt class="mail-form__dt">※お問い合わせ内容</dt>
             <dd class="mail-form__dd required">
-              [textarea* contents "テキストがはいります"]
+              [textarea* your-message placeholder "テキストがはいります"]
             </dd>
           </dl>
 
@@ -68,6 +68,12 @@
           <p id="form_submit" class="mail-form__submit">
             <input type="submit" id="form_submit_button" value="送信" />
           </p>
+
+          <script>
+            document.addEventListener('wpcf7mailsent', function(event) {
+              location = './thanks';
+            }, false);
+          </script>
         </form> -->
       </div>
     </main>
