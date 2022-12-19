@@ -41,7 +41,7 @@
   <header class="header">
     <div class="header__header-inner">
       <h1 class="header__site-logo site-logo">
-        <a href="/">
+        <a href="<?php echo esc_url(home_url('/')); ?>">
           <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/CodeUps.svg')); ?>" alt="CodeUps">
         </a>
       </h1>

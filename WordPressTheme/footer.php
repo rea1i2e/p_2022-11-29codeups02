@@ -1,7 +1,7 @@
 <footer class="footer">
   <div class="footer__l-inner">
     <div class="footer__page-title">
-      <a href="/">
+      <a href="<?php echo esc_url(home_url('/')); ?>">
         <img class="footer__site-logo" src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/CodeUps.svg')); ?>" alt="CodeUps">
       </a>
     </div>
