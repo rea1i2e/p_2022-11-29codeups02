@@ -1859,7 +1859,7 @@ form input[type=tel].wpcf7-not-valid {
 
 .overview-map {
 	margin-left: calc(50% - 50vw);
-	margin-right: calc(50% - 50vw);
+	width: 100vw;
 }
 
 .page-wrapper {
@@ -3088,7 +3088,7 @@ section:nth-of-type(even) .section-titles__section-subtitle {
 
 .overview-map {
 	margin-left: 0;
-	margin-right: 0;
+	width: 100%;
 }
 
 .blog__section-titles {
