@@ -7,6 +7,6 @@
     <p class="contact__descript">
       テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
     </p>
-    <a href="/contact/" class="btn contact__btn">お問い合わせへ</a>
+    <a href="<?php echo esc_url(home_url('/contact')); ?>" class="btn contact__btn">お問い合わせへ</a>
   </div>
 </section>

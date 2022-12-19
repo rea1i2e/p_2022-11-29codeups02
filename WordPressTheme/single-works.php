@@ -104,7 +104,7 @@ $taxonomy_name = $taxonomy->label;
       <!-- <?php previous_post_link('%link', 'prev'); ?> -->
       <?php previous_post_link('%link', 'prev'); ?>
       <?php $post_type = get_post()->post_type; ?>
-      <a class="wp-pagenavi__list" href="<?php echo get_post_type_archive_link($post_type); ?>"><?php echo $post_type; ?>一覧</a>
+      <a class="wp-pagenavi__list" href="<?php echo get_post_type_archive_link($post_type); ?>">一覧</a>
       <?php next_post_link('%link', 'next'); ?>
     </div>
 
@@ -165,6 +165,8 @@ $taxonomy_name = $taxonomy->label;
 
       </div>
     </div>
+
+    <?php get_template_part('contact'); ?>
 
 
 <?php get_footer(); ?>

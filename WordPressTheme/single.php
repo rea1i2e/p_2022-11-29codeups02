@@ -56,7 +56,7 @@
   <!-- <?php previous_post_link('%link', 'prev'); ?> -->
   <?php previous_post_link('%link', 'prev'); ?>
   <?php $post_type = get_post()->post_type; ?>
-  <a class="wp-pagenavi__list" href="<?php echo get_post_type_archive_link($post_type); ?>"><?php echo $post_type; ?>一覧</a>
+  <a class="wp-pagenavi__list" href="<?php echo get_post_type_archive_link($post_type); ?>">一覧</a>
   <?php next_post_link('%link', 'next'); ?>
 </div>
 
@@ -117,19 +117,6 @@
   </div>
 </div>
 
-
-
-<section class="contact" id="contact">
-  <div class="contact__l-inner l-inner">
-    <div class="contact__section-titles section-titles">
-      <p class="section-titles__section-subtitle">Contact</p>
-      <h2 class="section-titles__section-title section-titles__section-title--contact">お問い合わせ</h2>
-    </div>
-    <p class="contact__descript">
-      テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
-    </p>
-    <a href="/contact/" class="btn contact__btn">お問い合わせへ</a>
-  </div>
-</section>
+<?php get_template_part('contact'); ?>
 
 <?php get_footer(); ?>

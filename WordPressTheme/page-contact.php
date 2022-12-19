@@ -75,11 +75,10 @@
             }, false);
           </script>
         </form> -->
+        
       </div>
     </main>
   <?php endwhile; ?>
 <?php endif; ?>
-
-<?php get_template_part('contact'); ?>
 
 <?php get_footer(); ?>

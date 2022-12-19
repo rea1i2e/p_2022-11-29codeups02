@@ -36,7 +36,7 @@
           <?php endwhile; ?>
         </dl>
         <div class="top-news__btn">
-          <a href="/news/" class="btn btn--pc-small"><span class="btn--pc-small__txt">
+          <a href="<?php echo esc_url(home_url('/news')); ?>" class="btn btn--pc-small"><span class="btn--pc-small__txt">
               すべて見る
             </span>
           </a>
@@ -58,7 +58,7 @@
   <ul class="content__wrapper">
 
     <li class="content__list">
-      <a href="/content/" class="content__link">
+    <a href="<?php echo esc_url(home_url('/content')); ?>" class="content__link">
         <div class="content__image image image--full">
           <div class="image__div image__div--image00">
             <h3 class="image__title">経営理念ページへ</h3><!-- /.image__title -->
@@ -67,7 +67,7 @@
       </a>
     </li>
     <li class="content__list">
-      <a href="/content/index.html#content01" class="content__link">
+    <a href="<?php echo esc_url(home_url('/content/#content01')); ?>" class="content__link">
         <div class="content__image image image--full">
           <div class="image__div image__div--image01">
             <h3 class="image__title">理念1へ</h3><!-- /.image__title -->
@@ -76,7 +76,7 @@
       </a>
     </li>
     <li class="content__list">
-      <a href="/content/index.html#content02" class="content__link">
+    <a href="<?php echo esc_url(home_url('/content/#content02')); ?>" class="content__link">
         <div class="content__image image image--full">
           <div class="image__div image__div--image02">
             <h3 class="image__title">理念2へ</h3><!-- /.image__title -->
@@ -85,7 +85,7 @@
       </a>
     </li>
     <li class="content__list">
-      <a href="/content/index.html#content03" class="content__link">
+      <a href="<?php echo esc_url(home_url('/content/#content03')); ?>" class="content__link">
         <div class="content__image image image--full">
           <div class="image__div image__div--image03">
             <h3 class="image__title">理念3へ</h3><!-- /.image__title -->
@@ -144,7 +144,7 @@
             トップページでは、サブクエリを利用して、制作実績の投稿タイプのデータを3件取得し、繰り返しカスタムフィールドの1枚目の画像だけをスライダーで表示。
           </p>
           <div class="description-wrapper__btn">
-            <a href="/works/" class="btn">詳しく見る</a>
+            <a href="<?php echo esc_url(home_url('/works')); ?>" class="btn">詳しく見る</a>
           </div><!-- /.description-wrapper__btn -->
         </div><!-- /.description-wrapper -->
       </div><!-- /.image-text-wrapper -->
@@ -176,7 +176,7 @@
             テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
           </p>
           <div class="description-wrapper__btn">
-            <a href="/overview/" class="btn">詳しく見る</a>
+            <a href="<?php echo esc_url(home_url('/overview')); ?>" class="btn">詳しく見る</a>
           </div><!-- /.description-wrapper__btn -->
         </div><!-- /.description-wrapper -->
       </div><!-- /.image-text-wrapper -->
@@ -246,7 +246,7 @@
         <!-- 投稿がない場合の内容 -->
       <?php endif; ?>
     </ul>
-    <a href="/blog/" class="blog__btn btn">詳しく見る</a>
+    <a href="<?php echo esc_url(home_url('/blog')); ?>" class="blog__btn btn">詳しく見る</a>
   </div><!-- /.blog__inner l-inner -->
 </section><!-- /.blog -->
 

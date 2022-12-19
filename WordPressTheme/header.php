@@ -53,7 +53,7 @@
           <li class="header__nav-list"><a class="header__nav-link" href="<?php echo esc_url(home_url('/works')); ?>">制作実績</a></li>
           <li class="header__nav-list"><a class="header__nav-link" href="<?php echo esc_url(home_url('/overview')); ?>">企業概要</a></li>
           <li class="header__nav-list"><a class="header__nav-link" href="<?php echo esc_url(home_url('/blog')); ?>">ブログ</a></li>
-          <li class="header__nav-list"><a class="header__nav-link header__nav-link--white" href="/contact/">お問い合わせ</a>
+          <li class="header__nav-list"><a class="header__nav-link header__nav-link--white" href="<?php echo esc_url(home_url('/contact')); ?>">お問い合わせ</a>
           </li>
         </ul>
       </nav>
