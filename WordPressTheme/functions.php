@@ -40,7 +40,7 @@ function my_script_init()
 	wp_enqueue_style('slick-theme', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css');
 	wp_enqueue_style('slick', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
 	wp_enqueue_style('swiper', 'https://unpkg.com/swiper/swiper-bundle.min.css');
-	wp_enqueue_style('my', get_template_directory_uri() . '/assets/css/styles.css', array(), '1.0.1', 'all');
+	wp_enqueue_style('my', get_template_directory_uri() . '/assets/css/styles.css', array(), filemtime(get_theme_file_path('/assets/css/styles.css')), 'all');
 
 	wp_enqueue_script('slick', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array('jquery'), '1.0.1', true);
 	wp_enqueue_script('swiper', 'https://unpkg.com/swiper/swiper-bundle.min.js', array('jquery'), '1.0.1', true);

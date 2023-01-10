@@ -1,6 +1,11 @@
 jQuery(function ($) {
   // この中であればWordpressでも「$」が使用可能になる
 
+  $("#future_date").countdowntimer({
+    dateAndTime: "2023/01/01 00:00:00",
+    size: "lg",
+  });
+
   var topBtn = $(".pagetop");
   topBtn.hide();
 
@@ -43,14 +48,11 @@ jQuery(function ($) {
 
   // ハンバーガー
   $(".js-hamburger-btn").on("click", function () {
-    if($(".header__btn-line").hasClass("open")) {
-
+    if ($(".header__btn-line").hasClass("open")) {
       $(".header__btn-line").removeClass("open");
       $(".header__nav").css("animation", "disappear 0.3s forwards");
       $("html,body").css("overflow", "initial");
-
     } else {
-
       $(".header__btn-line").addClass("open");
       $(".header__nav").css("animation", "appear 0.3s forwards");
       $("html,body").css("overflow", "hidden");
@@ -117,3 +119,28 @@ var thumbs = new Swiper(".gallery-thumbs", {
 //メインとサムネイルを紐づける
 slider.controller.control = thumbs;
 thumbs.controller.control = slider;
+
+let countdown = setInterval(function(){
+  const now = new Date()  //今の日時
+  const target = new Date("2022/12/22 0:00:00")
+  const remainTime = target - now  //差分を取る（ミリ秒で返ってくる
+
+  //指定の日時を過ぎていたら処理をしない
+  if(remainTime < 0) return false 
+
+  //差分の日・時・分・秒を取得
+  const difDay  = Math.floor(remainTime / 1000 / 60 / 60 / 24)
+  const difHour = Math.floor(remainTime / 1000 / 60 / 60 ) % 24
+  const difMin  = Math.floor(remainTime / 1000 / 60) % 60
+  const difSec  = Math.floor(remainTime / 1000) % 60
+
+  //残りの日時を上書き
+  document.getElementById("countdown-day").textContent  = difDay
+  document.getElementById("countdown-hour").textContent = difHour
+  document.getElementById("countdown-min").textContent  = difMin
+  document.getElementById("countdown-sec").textContent  = difSec
+
+  //指定の日時になればカウントを止める
+  if(remainTime < 0) clearInterval(countdown)
+
+}, 1000)    //1秒間に1度処理

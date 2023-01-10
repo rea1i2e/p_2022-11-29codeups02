@@ -3,6 +3,10 @@
 jQuery(function ($) {
   // この中であればWordpressでも「$」が使用可能になる
 
+  $("#future_date").countdowntimer({
+    dateAndTime: "2023/01/01 00:00:00",
+    size: "lg"
+  });
   var topBtn = $(".pagetop");
   topBtn.hide();
 
@@ -116,3 +120,26 @@ var thumbs = new Swiper(".gallery-thumbs", {
 //メインとサムネイルを紐づける
 slider.controller.control = thumbs;
 thumbs.controller.control = slider;
+var countdown = setInterval(function () {
+  var now = new Date(); //今の日時
+  var target = new Date("2022/12/22 0:00:00");
+  var remainTime = target - now; //差分を取る（ミリ秒で返ってくる
+
+  //指定の日時を過ぎていたら処理をしない
+  if (remainTime < 0) return false;
+
+  //差分の日・時・分・秒を取得
+  var difDay = Math.floor(remainTime / 1000 / 60 / 60 / 24);
+  var difHour = Math.floor(remainTime / 1000 / 60 / 60) % 24;
+  var difMin = Math.floor(remainTime / 1000 / 60) % 60;
+  var difSec = Math.floor(remainTime / 1000) % 60;
+
+  //残りの日時を上書き
+  document.getElementById("countdown-day").textContent = difDay;
+  document.getElementById("countdown-hour").textContent = difHour;
+  document.getElementById("countdown-min").textContent = difMin;
+  document.getElementById("countdown-sec").textContent = difSec;
+
+  //指定の日時になればカウントを止める
+  if (remainTime < 0) clearInterval(countdown);
+}, 1000); //1秒間に1度処理

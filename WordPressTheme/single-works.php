@@ -88,10 +88,10 @@ $taxonomy_name = $taxonomy->label;
             ?>
               <li class="points__item point">
                 <h2 class="point__heading">
-                  <?php echo $field['label']; ?>
+                  <?php echo esc_html($field['label']); ?>
                 </h2>
                 <p class="point__description">
-                  <?php echo $field['value']; ?>
+                  <?php echo nl2br(esc_html($field['value'])); ?>
                 </p>
               </li>
             <?php endif; ?>

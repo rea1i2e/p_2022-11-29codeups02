@@ -5,8 +5,17 @@
   <div class="mainview__slide" style="background-image: url(<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/top/mv02.jpg)"></div>
   <div class="mainview__slide" style="background-image: url(<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/top/mv03.jpg)"></div>
   <div class="mainview__title">
-    <h2 class="mainview__main-title">メインタイトルが入ります</h2>
-    <p class="mainview__sub-title">サブタイトルが入ります</p>
+    <h2 class="mainview__main-title">
+      年明けまで残り
+    </h2>
+    <p class="mainview__sub-title">
+    <div id="countdownArea" class="countdown">
+    <span id="countdown-day"></span>日
+    <span id="countdown-hour"></span>時間
+    <span id="countdown-min"></span>分
+    <span id="countdown-sec"></span>秒
+</div>
+   </p>
   </div>
 </div>
 
@@ -58,7 +67,7 @@
   <ul class="content__wrapper">
 
     <li class="content__list">
-    <a href="<?php echo esc_url(home_url('/content')); ?>" class="content__link">
+      <a href="<?php echo esc_url(home_url('/content')); ?>" class="content__link">
         <div class="content__image image image--full">
           <div class="image__div image__div--image00">
             <h3 class="image__title">経営理念ページへ</h3><!-- /.image__title -->
@@ -67,7 +76,7 @@
       </a>
     </li>
     <li class="content__list">
-    <a href="<?php echo esc_url(home_url('/content/#content01')); ?>" class="content__link">
+      <a href="<?php echo esc_url(home_url('/content/#content01')); ?>" class="content__link">
         <div class="content__image image image--full">
           <div class="image__div image__div--image01">
             <h3 class="image__title">理念1へ</h3><!-- /.image__title -->
@@ -76,7 +85,7 @@
       </a>
     </li>
     <li class="content__list">
-    <a href="<?php echo esc_url(home_url('/content/#content02')); ?>" class="content__link">
+      <a href="<?php echo esc_url(home_url('/content/#content02')); ?>" class="content__link">
         <div class="content__image image image--full">
           <div class="image__div image__div--image02">
             <h3 class="image__title">理念2へ</h3><!-- /.image__title -->
