@@ -22,6 +22,8 @@ function my_setup()
 			'comment-list',
 			'gallery',
 			'caption',
+			'style',
+			'script',
 		)
 	);
 }
@@ -181,4 +183,3 @@ add_action('pre_get_posts', 'change_set_post');
 
 //the_excerpt()でのpタグ削除
 remove_filter('the_excerpt', 'wpautop');
-
