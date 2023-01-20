@@ -27,7 +27,7 @@
 
         <div class="article__heading page-heading">
           <h1 class="page-heading__title"><?php the_title(); ?></h1>
-          <time class="page-heading__date" datetime="<?php echo get_the_date('Y-m-d') ?>"><?php echo get_the_date('Y/m/d') ?></time>
+          <time class="page-heading__date" datetime="<?php echo esc_attr(get_the_date(DATE_W3C)); ?>"><?php echo get_the_date('Y/m/d') ?></time>
           <?php
           $terms = get_the_terms($post->ID, $taxonomy_slug[0]);
           foreach ($terms as $term) {
